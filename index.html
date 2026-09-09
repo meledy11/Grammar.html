@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSK 1 · 2 · 3 — Грамматика с объяснениями</title>
+    <title>HSK 1 · 2 · 3 — Полная грамматика (просто и понятно)</title>
     <style>
         * {
             box-sizing: border-box;
@@ -63,111 +63,118 @@
             background: white;
             box-shadow: 0 6px 18px rgba(0,0,0,0.07);
             border-radius: 20px;
-            padding: 28px 30px 24px;
+            padding: 24px 26px 20px;
             margin-bottom: 32px;
         }
         .page h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             color: #1a2d44;
             border-left: 6px solid #2c6b9e;
-            padding-left: 18px;
-            margin-bottom: 6px;
+            padding-left: 16px;
+            margin-bottom: 4px;
         }
         .page .subtitle {
-            font-size: 15px;
+            font-size: 14px;
             color: #5a6f86;
-            margin-bottom: 22px;
-            padding-left: 24px;
+            margin-bottom: 18px;
+            padding-left: 22px;
         }
 
-        .grammar-block {
-            margin-bottom: 26px;
+        .section {
+            margin-bottom: 16px;
         }
-        .grammar-block .block-title {
-            font-size: 19px;
+        .section-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1a3c5e;
             background: #e8edf5;
-            padding: 8px 18px;
+            padding: 6px 16px;
             border-radius: 30px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border: 1px solid #d0d9e6;
         }
-        .grammar-block .sub-title {
-            font-size: 16px;
+        .section-sub {
+            font-size: 15px;
             font-weight: 600;
             color: #2a4a6a;
-            margin: 14px 0 6px 0;
-            padding-left: 6px;
+            margin: 10px 0 4px 6px;
         }
-        .grammar-block .sub-title .ru {
-            font-weight: 400;
-            color: #5a6f86;
+
+        .rule {
+            background: #f8faff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border: 1px solid #e6ecf5;
+        }
+        .rule .name {
             font-size: 15px;
-        }
-        .grammar-block ul {
-            list-style: none;
-            padding-left: 20px;
-            margin: 4px 0 8px 0;
-        }
-        .grammar-block ul li {
-            font-size: 15px;
-            color: #1f3349;
-            padding: 6px 0 6px 24px;
-            position: relative;
-            line-height: 1.7;
-            border-bottom: 1px dashed #edf1f7;
-        }
-        .grammar-block ul li::before {
-            content: "•";
-            position: absolute;
-            left: 4px;
-            color: #2c6b9e;
             font-weight: 700;
-            font-size: 18px;
-        }
-        .grammar-block ul li .tag {
-            display: inline-block;
-            background: #e3ecf5;
             color: #1a3c5e;
-            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .rule .name .tag {
+            display: inline-block;
+            background: #2c6b9e;
+            color: white;
+            font-size: 11px;
             font-weight: 600;
             padding: 0 10px;
-            border-radius: 20px;
-            margin-right: 6px;
+            border-radius: 30px;
+            line-height: 22px;
         }
-        .grammar-block ul li .example {
+        .rule .name .cn {
             color: #7d5d3a;
-            background: #f6f2ea;
-            padding: 0 8px;
-            border-radius: 8px;
+            font-weight: 500;
             font-size: 14px;
         }
-        .grammar-block ul li .trans {
-            color: #3d5e7a;
-            font-style: italic;
-            font-size: 14px;
-        }
-        .grammar-block .note {
+        .rule .desc {
             font-size: 14px;
             color: #2f4a66;
-            background: #f4f7fb;
-            padding: 8px 16px;
-            border-radius: 10px;
-            margin: 4px 0 6px 20px;
+            margin: 2px 0 4px 0;
+            line-height: 1.5;
+        }
+        .rule .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            margin-top: 4px;
+        }
+        .rule .examples .ex {
+            background: #f2f6fb;
+            padding: 3px 10px 3px 12px;
+            border-radius: 8px;
+            font-size: 13px;
             border-left: 3px solid #7fa9c9;
-            line-height: 1.6;
+        }
+        .rule .examples .ex .zh {
+            font-weight: 600;
+            color: #0d263b;
+        }
+        .rule .examples .ex .pinyin {
+            color: #7d5d3a;
+            font-size: 12px;
+        }
+        .rule .examples .ex .trans {
+            color: #3d5e7a;
+            font-style: italic;
+            font-size: 12px;
+            display: block;
+            margin-top: 1px;
         }
 
         .footer-note {
             text-align: center;
             color: #5a6f86;
             font-size: 13px;
-            margin-top: 16px;
+            margin-top: 14px;
             border-top: 1px solid #dce4ed;
-            padding-top: 14px;
+            padding-top: 12px;
             opacity: 0.7;
         }
 
@@ -183,24 +190,21 @@
             .page {
                 box-shadow: none;
                 border-radius: 0;
-                padding: 16px 14px;
-                margin: 0 auto 14px;
+                padding: 14px 12px;
+                margin: 0 auto 12px;
                 page-break-after: always;
                 max-width: 100%;
                 border: 1px solid #d0d8e0;
             }
             .page:last-child { page-break-after: avoid; }
-            .grammar-block ul li {
-                border-bottom: 1px solid #dde3ec;
-                font-size: 14px;
-            }
-            .page h1 { font-size: 22px; }
+            .rule { padding: 8px 12px; }
+            .rule .examples .ex { font-size: 12px; }
         }
 
         @media screen and (max-width: 600px) {
-            .page { padding: 18px 14px; }
+            .page { padding: 14px 10px; }
             .tab-btn { font-size: 14px; padding: 10px 8px; min-width: 60px; }
-            .grammar-block ul li { font-size: 14px; padding-left: 18px; }
+            .rule .examples .ex { font-size: 12px; }
         }
     </style>
 </head>
@@ -210,855 +214,1391 @@
 
     <!-- ===== ВКЛАДКИ ===== -->
     <div class="tabs">
-        <button class="tab-btn active" data-tab="hsk1-grammar">📘 HSK 1 · Грамматика</button>
-        <button class="tab-btn" data-tab="hsk2-grammar">📗 HSK 2 · Грамматика</button>
-        <button class="tab-btn" data-tab="hsk3-grammar">📙 HSK 3 · Грамматика</button>
+        <button class="tab-btn active" data-tab="hsk1-grammar">📘 HSK 1</button>
+        <button class="tab-btn" data-tab="hsk2-grammar">📗 HSK 2</button>
+        <button class="tab-btn" data-tab="hsk3-grammar">📙 HSK 3</button>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== HSK 1 ГРАММАТИКА С ОБЪЯСНЕНИЯМИ ===== -->
+    <!-- ===== HSK 1 ===== -->
     <!-- ============================================================ -->
     <div id="tab-hsk1-grammar" class="tab-content active">
         <div class="page">
             <h1>📘 HSK 1 · Грамматика</h1>
-            <div class="subtitle">Новая версия экзамена · Полный справочник с объяснениями</div>
+            <div class="subtitle">Полный список правил — просто и понятно</div>
 
             <!-- 1. 语素 -->
-            <div class="grammar-block">
-                <div class="block-title">1. 语素 (Морфемы)</div>
-                <div class="note">Морфемы — это минимальные значимые единицы языка. В китайском языке многие слова состоят из одной морфемы (корня), но есть также приставки и суффиксы, которые изменяют значение слова или грамматическую роль.</div>
-
-                <div class="sub-title">1.1 前缀 (Приставки) <span class="ru">— ставятся перед корнем</span></div>
-                <ul>
-                    <li><span class="tag">小—</span> <b>Уменьшительно-ласкательная приставка.</b> Используется перед фамилиями или названиями, чтобы выразить нежность, дружелюбие или указать на молодой возраст. <br>
-                        <span class="example">小张 (Xiǎo Zhāng) — Сяо Чжан</span> (так ласково называют молодого человека по фамилии Чжан) <br>
-                        <span class="example">小狗 (xiǎo gǒu) — собачка</span> (уменьшительно-ласкательное от «собака»)
-                    </li>
-                    <li><span class="tag">第—</span> <b>Приставка для образования порядковых числительных.</b> Ставится перед числительным, превращая его в порядковое (какой по счёту). <br>
-                        <span class="example">第一 (dì-yī) — первый</span> <br>
-                        <span class="example">第二 (dì-èr) — второй</span> <br>
-                        <span class="example">第三 (dì-sān) — третий</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">1.2 后缀 (Суффиксы) <span class="ru">— ставятся после корня</span></div>
-                <ul>
-                    <li><span class="tag">—们</span> <b>Суффикс множественного числа.</b> Добавляется к личным местоимениям и одушевлённым существительным (люди), чтобы указать на множество. <br>
-                        <span class="example">我们 (wǒmen) — мы</span> <br>
-                        <span class="example">你们 (nǐmen) — вы</span> <br>
-                        <span class="example">同学们 (tóngxuémen) — одноклассники (все)</span>
-                    </li>
-                    <li><span class="tag">—边</span> <b>Суффикс направления/стороны.</b> Указывает на сторону или направление. Часто используется с указательными и вопросительными местоимениями. <br>
-                        <span class="example">这边 (zhèbiān) — здесь, в эту сторону</span> <br>
-                        <span class="example">那边 (nàbiān) — там, в ту сторону</span> <br>
-                        <span class="example">左边 (zuǒbian) — слева, левая сторона</span> <br>
-                        <span class="example">右边 (yòubian) — справа, правая сторона</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">1. 语素 (Морфемы)</div>
+                <div class="section-sub">1.1 前缀 (Приставки)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">小—</span> Уменьшительно-ласкательная</div>
+                    <div class="desc">Ставится перед фамилиями или названиями, чтобы выразить нежность или указать на молодой возраст.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">小张</span> <span class="pinyin">Xiǎo Zhāng</span> <span class="trans">Сяо Чжан (ласково о молодом человеке)</span></div>
+                        <div class="ex"><span class="zh">小狗</span> <span class="pinyin">xiǎo gǒu</span> <span class="trans">собачка (уменьшительно-ласкательное)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">第—</span> Порядковые числительные</div>
+                    <div class="desc">Ставится перед числительным, превращая его в порядковое (какой по счёту).</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">第一</span> <span class="pinyin">dì-yī</span> <span class="trans">первый</span></div>
+                        <div class="ex"><span class="zh">第二</span> <span class="pinyin">dì-èr</span> <span class="trans">второй</span></div>
+                        <div class="ex"><span class="zh">第三</span> <span class="pinyin">dì-sān</span> <span class="trans">третий</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">1.2 后缀 (Суффиксы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">—们</span> Множественное число</div>
+                    <div class="desc">Добавляется к личным местоимениям и одушевлённым существительным.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我们</span> <span class="pinyin">wǒmen</span> <span class="trans">мы</span></div>
+                        <div class="ex"><span class="zh">你们</span> <span class="pinyin">nǐmen</span> <span class="trans">вы</span></div>
+                        <div class="ex"><span class="zh">同学们</span> <span class="pinyin">tóngxuémen</span> <span class="trans">одноклассники</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">—边</span> Сторона/направление</div>
+                    <div class="desc">Указывает на сторону или направление. Используется с указательными и вопросительными местоимениями.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">这边</span> <span class="pinyin">zhèbiān</span> <span class="trans">здесь, в эту сторону</span></div>
+                        <div class="ex"><span class="zh">那边</span> <span class="pinyin">nàbiān</span> <span class="trans">там, в ту сторону</span></div>
+                        <div class="ex"><span class="zh">左边</span> <span class="pinyin">zuǒbian</span> <span class="trans">слева</span></div>
+                        <div class="ex"><span class="zh">右边</span> <span class="pinyin">yòubian</span> <span class="trans">справа</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 2. 词类 -->
-            <div class="grammar-block">
-                <div class="block-title">2. 词类 (Части речи)</div>
-                <div class="note">В китайском языке части речи определяются по функции слова в предложении, а не по форме. Одно и то же слово может выступать в роли разных частей речи в зависимости от контекста.</div>
-
-                <div class="sub-title">2.1 名词 (Существительные) <span class="ru">— обозначают предметы, людей, явления</span></div>
-                <ul>
-                    <li><span class="tag">方位名词</span> <b>Существительные, указывающие на место или направление.</b> Часто используются после других существительных для указания местоположения. <br>
-                        <span class="example">上 (shàng) — на/над/сверху</span> — <span class="example">桌子上 (zhuōzi shàng) — на столе</span> <br>
-                        <span class="example">下 (xià) — под/внизу</span> — <span class="example">床下 (chuáng xià) — под кроватью</span> <br>
-                        <span class="example">里 (lǐ) — внутри</span> — <span class="example">房间里 (fángjiān lǐ) — в комнате</span> <br>
-                        <span class="example">外 (wài) — снаружи</span> — <span class="example">教室外 (jiàoshì wài) — снаружи класса</span> <br>
-                        <span class="example">前 (qián) — впереди/перед</span> — <span class="example">学校前 (xuéxiào qián) — перед школой</span> <br>
-                        <span class="example">后 (hòu) — сзади/позади</span> — <span class="example">商店后 (shāngdiàn hòu) — позади магазина</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.2 动词 (Глаголы) <span class="ru">— обозначают действия или состояния</span></div>
-                <ul>
-                    <li><span class="tag">能愿动词 (Модальные глаголы)</span> <b>Глаголы, выражающие возможность, желание, необходимость.</b> Ставятся перед смысловым глаголом. <br>
-                        <span class="example">会 (huì) — уметь (приобретённое умение)</span> — <span class="example">我会说汉语 (Wǒ huì shuō hànyǔ) — Я умею говорить по-китайски.</span> <br>
-                        <span class="example">能 (néng) — мочь (физическая возможность)</span> — <span class="example">我能去 (Wǒ néng qù) — Я могу пойти.</span> <br>
-                        <span class="example">想 (xiǎng) — хотеть (желание)</span> — <span class="example">我想喝水 (Wǒ xiǎng hē shuǐ) — Я хочу пить.</span> <br>
-                        <span class="example">要 (yào) — хотеть/собираться</span> — <span class="example">我要去 (Wǒ yào qù) — Я хочу/собираюсь пойти.</span> <br>
-                        <span class="example">可以 (kěyǐ) — можно/разрешено</span> — <span class="example">可以进来吗？(Kěyǐ jìnlái ma?) — Можно войти?</span>
-                    </li>
-                    <li><span class="tag">离合词 (Разделяемые глаголы)</span> <b>Глаголы, которые можно разделять на две части, вставляя между ними другие слова.</b> Это особый класс глаголов, состоящих из двух слогов, которые могут употребляться слитно или раздельно. <br>
-                        <span class="example">看病 (kànbìng) — идти к врачу (букв. «смотреть болезнь»)</span> — <span class="example">我看了一次病 (Wǒ kàn le yī cì bìng) — Я сходил к врачу один раз.</span> <br>
-                        <span class="example">睡觉 (shuìjiào) — спать (букв. «спать сон»)</span> — <span class="example">我睡了三个小时觉 (Wǒ shuì le sān gè xiǎoshí jiào) — Я проспал три часа.</span> <br>
-                        <span class="example">说话 (shuōhuà) — говорить/разговаривать</span> — <span class="example">别说太多话 (Bié shuō tài duō huà) — Не говори слишком много.</span> <br>
-                        <span class="example">上课/下课 (shàngkè/xiàkè) — идти на урок/заканчивать урок</span> <br>
-                        <span class="example">上班/下班 (shàngbān/xiàbān) — идти на работу/заканчивать работу</span> <br>
-                        <span class="example">生病 (shēngbìng) — заболеть</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.3 代词 (Местоимения) <span class="ru">— заменяют существительные</span></div>
-                <ul>
-                    <li><span class="tag">疑问代词 (Вопросительные местоимения)</span> <b>Используются для построения вопросов.</b> <br>
-                        <span class="example">多 (duō) — насколько</span> — <span class="example">多大？(Duō dà?) — Сколько (лет/размер)?</span> <br>
-                        <span class="example">多少 (duōshao) — сколько (для чисел больше 10)</span> — <span class="example">多少钱？(Duōshao qián?) — Сколько стоит?</span> <br>
-                        <span class="example">几 (jǐ) — сколько (для чисел меньше 10)</span> — <span class="example">几个人？(Jǐ gè rén?) — Сколько человек?</span> <br>
-                        <span class="example">哪/哪儿/哪里 (nǎ/nǎr/nǎlǐ) — какой/где</span> — <span class="example">你是哪国人？(Nǐ shì nǎ guó rén?) — Ты откуда? (букв. «ты какой страны человек»)</span> <br>
-                        <span class="example">哪些 (nǎxiē) — какие (во множественном числе)</span> <br>
-                        <span class="example">什么 (shénme) — что/какой</span> — <span class="example">你叫什么名字？(Nǐ jiào shénme míngzi?) — Как тебя зовут?</span> <br>
-                        <span class="example">谁 (shéi) — кто</span> — <span class="example">他是谁？(Tā shì shéi?) — Кто он?</span> <br>
-                        <span class="example">怎么 (zěnme) — как</span> — <span class="example">怎么去？(Zěnme qù?) — Как добраться?</span> <br>
-                        <span class="example">怎么样 (zěnmeyàng) — как дела/как (оценка)</span> — <span class="example">你觉得怎么样？(Nǐ juéde zěnmeyàng?) — Как ты думаешь?</span>
-                    </li>
-                    <li><span class="tag">人称代词 (Личные местоимения)</span> <b>Обозначают лицо или предмет.</b> <br>
-                        <span class="example">我 (wǒ) — я</span> <br>
-                        <span class="example">你 (nǐ) — ты</span> <br>
-                        <span class="example">您 (nín) — Вы (вежливая форма)</span> <br>
-                        <span class="example">他/她/它 (tā) — он/она/оно (все произносятся одинаково)</span> <br>
-                        <span class="example">我们 (wǒmen) — мы</span> <br>
-                        <span class="example">你们 (nǐmen) — вы</span> <br>
-                        <span class="example">他们/她们/它们 (tāmen) — они (муж./жен./неодуш.)</span> <br>
-                        <span class="example">大家 (dàjiā) — все/все присутствующие</span>
-                    </li>
-                    <li><span class="tag">指示代词 (Указательные местоимения)</span> <b>Указывают на предметы или явления.</b> <br>
-                        <span class="example">这/那 (zhè/nà) — это/то</span> — <span class="example">这是我的书 (Zhè shì wǒ de shū) — Это моя книга.</span> <br>
-                        <span class="example">这儿/那儿 (zhèr/nàr) — здесь/там</span> — <span class="example">我在这儿 (Wǒ zài zhèr) — Я здесь.</span> <br>
-                        <span class="example">这里/那里 (zhèlǐ/nàlǐ) — здесь/там (более формально)</span> <br>
-                        <span class="example">这些/那些 (zhèxiē/nàxiē) — эти/те (множественное число)</span> <br>
-                        <span class="example">这个/那个 (zhège/nàge) — этот/тот (конкретный предмет)</span> <br>
-                        <span class="example">有的 (yǒude) — некоторые/одни</span> — <span class="example">有的人喜欢 (Yǒude rén xǐhuān) — Некоторым людям нравится.</span> <br>
-                        <span class="example">有些 (yǒuxiē) — некоторые (о предметах)</span> — <span class="example">有些书 (Yǒuxiē shū) — Некоторые книги.</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.4 数词 (Числительные)</div>
-                <ul>
-                    <li><b>Количественные числительные.</b> Используются для счёта и в составе других числовых конструкций. <br>
-                        <span class="example">一 (yī) — 1</span> <br>
-                        <span class="example">二/两 (èr/liǎng) — 2</span> (注意: счётное слово для двух предметов — 两) <br>
-                        <span class="example">三 (sān) — 3</span> <br>
-                        <span class="example">四 (sì) — 4</span> <br>
-                        <span class="example">五 (wǔ) — 5</span> <br>
-                        <span class="example">六 (liù) — 6</span> <br>
-                        <span class="example">七 (qī) — 7</span> <br>
-                        <span class="example">八 (bā) — 8</span> <br>
-                        <span class="example">九 (jiǔ) — 9</span> <br>
-                        <span class="example">零 (líng) — 0</span> <br>
-                        <span class="example">十 (shí) — 10</span> <br>
-                        <span class="example">百 (bǎi) — 100</span> <br>
-                        <span class="example">千 (qiān) — 1000</span> <br>
-                        <span class="example">半 (bàn) — половина</span> — <span class="example">半个小时 (bàn gè xiǎoshí) — полчаса</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.5 量词 (Счётные слова) <span class="ru">— используются между числительным и существительным</span></div>
-                <ul>
-                    <li><span class="tag">名量词 (Счётные слова для предметов)</span> <br>
-                        <span class="example">本 (běn) — для книг, тетрадей</span> — <span class="example">一本书 (yī běn shū) — одна книга</span> <br>
-                        <span class="example">个 (gè) — универсальное счётное слово</span> — <span class="example">一个人 (yī gè rén) — один человек</span> <br>
-                        <span class="example">家 (jiā) — для семей, магазинов, компаний</span> — <span class="example">一家人 (yī jiā rén) — одна семья</span> <br>
-                        <span class="example">口 (kǒu) — для членов семьи</span> — <span class="example">三口人 (sān kǒu rén) — три человека (в семье)</span> <br>
-                        <span class="example">块 (kuài) — для денег (юаней)</span> — <span class="example">十块钱 (shí kuài qián) — десять юаней</span> <br>
-                        <span class="example">件 (jiàn) — для одежды, дел</span> — <span class="example">一件衣服 (yī jiàn yīfu) — одна вещь (одежды)</span> <br>
-                        <span class="example">只 (zhī) — для животных (одно из двух), пары</span> — <span class="example">一只猫 (yī zhī māo) — одна кошка</span> <br>
-                        <span class="example">元 (yuán) — юань (денежная единица)</span> — <span class="example">五元 (wǔ yuán) — пять юаней</span>
-                    </li>
-                    <li><span class="tag">借用名量词 (Заимствованные счётные слова)</span> <br>
-                        <span class="example">杯 (bēi) — чашка/стакан</span> — <span class="example">一杯水 (yī bēi shuǐ) — стакан воды</span>
-                    </li>
-                    <li><span class="tag">时量词 (Счётные слова для времени)</span> <br>
-                        <span class="example">日/号 (rì/hào) — день (в дате)</span> — <span class="example">8月8日 (bā yuè bā rì) — 8 августа</span> <br>
-                        <span class="example">岁 (suì) — год (возраст)</span> — <span class="example">十岁 (shí suì) — десять лет</span> <br>
-                        <span class="example">点 (diǎn) — час (времени)</span> — <span class="example">三点 (sān diǎn) — три часа</span> <br>
-                        <span class="example">分 (fēn) — минута</span> — <span class="example">五分 (wǔ fēn) — пять минут</span> <br>
-                        <span class="example">年 (nián) — год</span> — <span class="example">三年 (sān nián) — три года</span> <br>
-                        <span class="example">天 (tiān) — день</span> — <span class="example">三天 (sān tiān) — три дня</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.6 副词 (Наречия) <span class="ru">— уточняют глаголы, прилагательные или другие наречия</span></div>
-                <ul>
-                    <li><span class="tag">程度副词 (Наречия степени)</span> <b>Указывают на степень проявления признака.</b> <br>
-                        <span class="example">非常 (fēicháng) — очень</span> — <span class="example">非常好 (fēicháng hǎo) — очень хорошо</span> <br>
-                        <span class="example">很 (hěn) — очень (нейтральное)</span> — <span class="example">很大 (hěn dà) — очень большой</span> <br>
-                        <span class="example">太 (tài) — слишком</span> — <span class="example">太热了 (tài rè le) — слишком жарко</span> <br>
-                        <span class="example">真 (zhēn) — действительно/правда</span> — <span class="example">真好 (zhēn hǎo) — правда хорошо</span> <br>
-                        <span class="example">有一点儿 (yǒu yīdiǎnr) — немного</span> — <span class="example">有一点儿累 (yǒu yīdiǎnr lèi) — немного устал</span>
-                    </li>
-                    <li><span class="tag">范围副词 (Наречия охвата)</span> <br>
-                        <span class="example">都 (dōu) — все/оба</span> — <span class="example">我们都来了 (wǒmen dōu lái le) — Мы все пришли.</span>
-                    </li>
-                    <li><span class="tag">时间副词 (Наречия времени)</span> <br>
-                        <span class="example">在/正在 (zài/zhèngzài) — сейчас/в данный момент</span> — <span class="example">他在看书 (tā zài kàn shū) — Он (сейчас) читает книгу.</span>
-                    </li>
-                    <li><span class="tag">频率副词 (Наречия частотности)</span> <br>
-                        <span class="example">再 (zài) — снова/ещё</span> — <span class="example">再见 (zàijiàn) — до свидания (букв. «ещё увидимся»)</span>
-                    </li>
-                    <li><span class="tag">关联副词 (Связующие наречия)</span> <br>
-                        <span class="example">还 (hái) — ещё</span> — <span class="example">我还有事 (wǒ hái yǒu shì) — У меня ещё есть дела.</span> <br>
-                        <span class="example">也 (yě) — тоже/также</span> — <span class="example">我也去 (wǒ yě qù) — Я тоже иду.</span>
-                    </li>
-                    <li><span class="tag">否定副词 (Отрицательные наречия)</span> <br>
-                        <span class="example">不 (bù) — не (отрицание общего характера)</span> — <span class="example">不是 (bùshì) — не является</span> <br>
-                        <span class="example">没/没有 (méi/méiyǒu) — не/нет (отрицание наличия или завершённого действия)</span> — <span class="example">没有钱 (méiyǒu qián) — нет денег</span> <br>
-                        <span class="example">不要 (bùyào) — не надо/не хотите</span> — <span class="example">不要这个 (bùyào zhège) — не хочу это</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.7 介词 (Предлоги) <span class="ru">— вводят дополнительные значения (время, место, объект)</span></div>
-                <ul>
-                    <li><span class="tag">引出时间、处所 (Время и место)</span> <br>
-                        <span class="example">在 (zài) — в/на (место или время)</span> — <span class="example">在北京 (zài Běijīng) — в Пекине</span> <br>
-                        <span class="example">在三点 (zài sān diǎn) — в три часа</span>
-                    </li>
-                    <li><span class="tag">引出对象 (Объект действия)</span> <br>
-                        <span class="example">和 (hé) — с (совместное действие)</span> — <span class="example">和你说 (hé nǐ shuō) — сказать тебе</span> <br>
-                        <span class="example">对 (duì) — по отношению к</span> — <span class="example">对他笑 (duì tā xiào) — улыбнуться ему</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.8 连词 (Союзы) <span class="ru">— связывают слова или части предложения</span></div>
-                <ul>
-                    <li><span class="tag">连接词语或短语</span> <br>
-                        <span class="example">和 (hé) — и (соединяет однородные члены)</span> — <span class="example">我和你 (wǒ hé nǐ) — я и ты</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.9 助词 (Частицы) <span class="ru">— служебные слова, которые не имеют самостоятельного значения</span></div>
-                <ul>
-                    <li><span class="tag">结构助词 (Структурная частица)</span> <br>
-                        <span class="example">的 (de) — показывает принадлежность или связь между словами</span> — <span class="example">我的书 (wǒ de shū) — моя книга</span>
-                    </li>
-                    <li><span class="tag">动态助词 (Видовая частица)</span> <br>
-                        <span class="example">了 (le) — указывает на завершённость действия</span> — <span class="example">我吃了饭 (wǒ chī le fàn) — Я поел (действие завершено).</span>
-                    </li>
-                    <li><span class="tag">语气助词 (Модальные частицы)</span> <b>Выражают отношение говорящего или оформляют тип предложения.</b> <br>
-                        <span class="example">吧 (ba) — предложение/побуждение</span> — <span class="example">走吧 (zǒu ba) — пошли!</span> <br>
-                        <span class="example">了 (le) — изменение состояния</span> — <span class="example">下雨了 (xiàyǔ le) — пошёл дождь</span> <br>
-                        <span class="example">吗 (ma) — общий вопрос (да/нет)</span> — <span class="example">你好吗？(nǐ hǎo ma?) — Как дела?</span> <br>
-                        <span class="example">呢 (ne) — вопрос о ситуации / продолжение разговора</span> — <span class="example">你呢？(nǐ ne?) — А ты?</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.10 叹词 (Междометия)</div>
-                <ul>
-                    <li><span class="example">喂 (wèi) — Алло! (в начале телефонного разговора)</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">2. 词类 (Части речи)</div>
+                <div class="section-sub">2.1 名词 (Существительные)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">方位名词</span> Место и направление</div>
+                    <div class="desc">Указывают на местоположение. Ставятся после других существительных.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">上</span> <span class="pinyin">shàng</span> <span class="trans">на/над — 桌子上 (на столе)</span></div>
+                        <div class="ex"><span class="zh">下</span> <span class="pinyin">xià</span> <span class="trans">под — 床下 (под кроватью)</span></div>
+                        <div class="ex"><span class="zh">里</span> <span class="pinyin">lǐ</span> <span class="trans">внутри — 房间里 (в комнате)</span></div>
+                        <div class="ex"><span class="zh">外</span> <span class="pinyin">wài</span> <span class="trans">снаружи — 教室外 (снаружи класса)</span></div>
+                        <div class="ex"><span class="zh">前</span> <span class="pinyin">qián</span> <span class="trans">перед — 学校前 (перед школой)</span></div>
+                        <div class="ex"><span class="zh">后</span> <span class="pinyin">hòu</span> <span class="trans">позади — 商店后 (позади магазина)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.2 动词 (Глаголы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">能愿动词</span> Модальные глаголы</div>
+                    <div class="desc">Выражают возможность, желание, необходимость. Ставятся перед смысловым глаголом.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">会</span> <span class="pinyin">huì</span> <span class="trans">уметь — 我会说汉语 (Я умею говорить по-китайски)</span></div>
+                        <div class="ex"><span class="zh">能</span> <span class="pinyin">néng</span> <span class="trans">мочь — 我能去 (Я могу пойти)</span></div>
+                        <div class="ex"><span class="zh">想</span> <span class="pinyin">xiǎng</span> <span class="trans">хотеть — 我想喝水 (Я хочу пить)</span></div>
+                        <div class="ex"><span class="zh">要</span> <span class="pinyin">yào</span> <span class="trans">хотеть/собираться — 我要去 (Я собираюсь пойти)</span></div>
+                        <div class="ex"><span class="zh">可以</span> <span class="pinyin">kěyǐ</span> <span class="trans">можно — 可以进来吗？(Можно войти?)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">离合词</span> Разделяемые глаголы</div>
+                    <div class="desc">Глаголы, которые можно разделять, вставляя между частями другие слова.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">看病</span> <span class="pinyin">kànbìng</span> <span class="trans">к врачу — 我看了一次病 (Я сходил к врачу раз)</span></div>
+                        <div class="ex"><span class="zh">睡觉</span> <span class="pinyin">shuìjiào</span> <span class="trans">спать — 我睡了三个小时觉 (Я проспал три часа)</span></div>
+                        <div class="ex"><span class="zh">说话</span> <span class="pinyin">shuōhuà</span> <span class="trans">говорить — 别说太多话 (Не говори слишком много)</span></div>
+                        <div class="ex"><span class="zh">上课/下课</span> <span class="pinyin">shàngkè/xiàkè</span> <span class="trans">на урок/с урока</span></div>
+                        <div class="ex"><span class="zh">上班/下班</span> <span class="pinyin">shàngbān/xiàbān</span> <span class="trans">на работу/с работы</span></div>
+                        <div class="ex"><span class="zh">生病</span> <span class="pinyin">shēngbìng</span> <span class="trans">заболеть</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.3 代词 (Местоимения)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">疑问代词</span> Вопросительные местоимения</div>
+                    <div class="desc">Используются для построения вопросов.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">多</span> <span class="pinyin">duō</span> <span class="trans">насколько — 多大？(Сколько лет/размер?)</span></div>
+                        <div class="ex"><span class="zh">多少</span> <span class="pinyin">duōshao</span> <span class="trans">сколько — 多少钱？(Сколько стоит?)</span></div>
+                        <div class="ex"><span class="zh">几</span> <span class="pinyin">jǐ</span> <span class="trans">сколько (до 10) — 几个人？(Сколько человек?)</span></div>
+                        <div class="ex"><span class="zh">哪/哪儿/哪里</span> <span class="pinyin">nǎ/nǎr/nǎlǐ</span> <span class="trans">какой/где — 你是哪国人？(Ты откуда?)</span></div>
+                        <div class="ex"><span class="zh">什么</span> <span class="pinyin">shénme</span> <span class="trans">что — 你叫什么名字？(Как тебя зовут?)</span></div>
+                        <div class="ex"><span class="zh">谁</span> <span class="pinyin">shéi</span> <span class="trans">кто — 他是谁？(Кто он?)</span></div>
+                        <div class="ex"><span class="zh">怎么</span> <span class="pinyin">zěnme</span> <span class="trans">как — 怎么去？(Как добраться?)</span></div>
+                        <div class="ex"><span class="zh">怎么样</span> <span class="pinyin">zěnmeyàng</span> <span class="trans">как дела — 你觉得怎么样？(Как ты думаешь?)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">人称代词</span> Личные местоимения</div>
+                    <div class="desc">Обозначают лицо или предмет.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我</span> <span class="pinyin">wǒ</span> <span class="trans">я</span></div>
+                        <div class="ex"><span class="zh">你/您</span> <span class="pinyin">nǐ/nín</span> <span class="trans">ты/Вы (вежл.)</span></div>
+                        <div class="ex"><span class="zh">他/她/它</span> <span class="pinyin">tā</span> <span class="trans">он/она/оно</span></div>
+                        <div class="ex"><span class="zh">我们/你们/他们</span> <span class="pinyin">wǒmen/nǐmen/tāmen</span> <span class="trans">мы/вы/они</span></div>
+                        <div class="ex"><span class="zh">大家</span> <span class="pinyin">dàjiā</span> <span class="trans">все</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">指示代词</span> Указательные местоимения</div>
+                    <div class="desc">Указывают на предметы или явления.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">这/那</span> <span class="pinyin">zhè/nà</span> <span class="trans">это/то — 这是我的书 (Это моя книга)</span></div>
+                        <div class="ex"><span class="zh">这儿/那儿</span> <span class="pinyin">zhèr/nàr</span> <span class="trans">здесь/там — 我在这儿 (Я здесь)</span></div>
+                        <div class="ex"><span class="zh">这里/那里</span> <span class="pinyin">zhèlǐ/nàlǐ</span> <span class="trans">здесь/там (формально)</span></div>
+                        <div class="ex"><span class="zh">这些/那些</span> <span class="pinyin">zhèxiē/nàxiē</span> <span class="trans">эти/те</span></div>
+                        <div class="ex"><span class="zh">这个/那个</span> <span class="pinyin">zhège/nàge</span> <span class="trans">этот/тот</span></div>
+                        <div class="ex"><span class="zh">有的/有些</span> <span class="pinyin">yǒude/yǒuxiē</span> <span class="trans">некоторые</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.4 数词 (Числительные)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">数词</span> Числительные</div>
+                    <div class="desc">Используются для счёта и в составе числовых конструкций.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">一 二 三 四 五</span> <span class="pinyin">yī èr sān sì wǔ</span> <span class="trans">1 2 3 4 5</span></div>
+                        <div class="ex"><span class="zh">六 七 八 九 十</span> <span class="pinyin">liù qī bā jiǔ shí</span> <span class="trans">6 7 8 9 10</span></div>
+                        <div class="ex"><span class="zh">百 千 零 半</span> <span class="pinyin">bǎi qiān líng bàn</span> <span class="trans">100 1000 0 половина</span></div>
+                        <div class="ex"><span class="zh">两</span> <span class="pinyin">liǎng</span> <span class="trans">2 (со счётными словами) — 两个人 (два человека)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.5 量词 (Счётные слова)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">名量词</span> Счётные слова для предметов</div>
+                    <div class="desc">Ставятся между числительным и существительным.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">本</span> <span class="pinyin">běn</span> <span class="trans">для книг — 一本书 (одна книга)</span></div>
+                        <div class="ex"><span class="zh">个</span> <span class="pinyin">gè</span> <span class="trans">универсальное — 一个人 (один человек)</span></div>
+                        <div class="ex"><span class="zh">家</span> <span class="pinyin">jiā</span> <span class="trans">для семей/магазинов — 一家人 (одна семья)</span></div>
+                        <div class="ex"><span class="zh">口</span> <span class="pinyin">kǒu</span> <span class="trans">для членов семьи — 三口人 (три человека)</span></div>
+                        <div class="ex"><span class="zh">块</span> <span class="pinyin">kuài</span> <span class="trans">для денег — 十块钱 (десять юаней)</span></div>
+                        <div class="ex"><span class="zh">件</span> <span class="pinyin">jiàn</span> <span class="trans">для одежды/дел — 一件衣服 (одна вещь)</span></div>
+                        <div class="ex"><span class="zh">只</span> <span class="pinyin">zhī</span> <span class="trans">для животных — 一只猫 (одна кошка)</span></div>
+                        <div class="ex"><span class="zh">元</span> <span class="pinyin">yuán</span> <span class="trans">юань — 五元 (пять юаней)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">借用名量词</span> Заимствованные счётные слова</div>
+                    <div class="desc">Существительные, используемые как счётные слова.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">杯</span> <span class="pinyin">bēi</span> <span class="trans">чашка — 一杯水 (стакан воды)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">时量词</span> Счётные слова для времени</div>
+                    <div class="desc">Указывают на единицы времени.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">日/号</span> <span class="pinyin">rì/hào</span> <span class="trans">день (в дате) — 8月8日 (8 августа)</span></div>
+                        <div class="ex"><span class="zh">岁</span> <span class="pinyin">suì</span> <span class="trans">год (возраст) — 十岁 (десять лет)</span></div>
+                        <div class="ex"><span class="zh">点</span> <span class="pinyin">diǎn</span> <span class="trans">час — 三点 (три часа)</span></div>
+                        <div class="ex"><span class="zh">分</span> <span class="pinyin">fēn</span> <span class="trans">минута — 五分 (пять минут)</span></div>
+                        <div class="ex"><span class="zh">年/天</span> <span class="pinyin">nián/tiān</span> <span class="trans">год/день — 三年 (три года)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.6 副词 (Наречия)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">程度副词</span> Степень признака</div>
+                    <div class="desc">Указывают на степень проявления признака.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">非常</span> <span class="pinyin">fēicháng</span> <span class="trans">очень — 非常好 (очень хорошо)</span></div>
+                        <div class="ex"><span class="zh">很</span> <span class="pinyin">hěn</span> <span class="trans">очень — 很大 (очень большой)</span></div>
+                        <div class="ex"><span class="zh">太</span> <span class="pinyin">tài</span> <span class="trans">слишком — 太热了 (слишком жарко)</span></div>
+                        <div class="ex"><span class="zh">真</span> <span class="pinyin">zhēn</span> <span class="trans">действительно — 真好 (правда хорошо)</span></div>
+                        <div class="ex"><span class="zh">有一点儿</span> <span class="pinyin">yǒu yīdiǎnr</span> <span class="trans">немного — 有一点儿累 (немного устал)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">范围副词</span> Охват</div>
+                    <div class="desc">Показывают, что действие относится ко всем.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">都</span> <span class="pinyin">dōu</span> <span class="trans">все — 我们都来了 (Мы все пришли)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">时间副词</span> Время</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">在/正在</span> <span class="pinyin">zài/zhèngzài</span> <span class="trans">сейчас — 他在看书 (Он читает книгу)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">频率副词</span> Частота</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">再</span> <span class="pinyin">zài</span> <span class="trans">снова — 再见 (до свидания)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">关联副词</span> Связь</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">还</span> <span class="pinyin">hái</span> <span class="trans">ещё — 我还有事 (У меня ещё дела)</span></div>
+                        <div class="ex"><span class="zh">也</span> <span class="pinyin">yě</span> <span class="trans">тоже — 我也去 (Я тоже иду)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">否定副词</span> Отрицание</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">不</span> <span class="pinyin">bù</span> <span class="trans">не — 不是 (не является)</span></div>
+                        <div class="ex"><span class="zh">没(有)</span> <span class="pinyin">méi(yǒu)</span> <span class="trans">нет — 没有钱 (нет денег)</span></div>
+                        <div class="ex"><span class="zh">不要</span> <span class="pinyin">bùyào</span> <span class="trans">не надо — 不要这个 (не хочу это)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.7 介词 (Предлоги)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出时间、处所</span> Время и место</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">在</span> <span class="pinyin">zài</span> <span class="trans">в/на — 在北京 (в Пекине), 在三点 (в три часа)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出对象</span> Объект</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">和</span> <span class="pinyin">hé</span> <span class="trans">с — 和你说 (сказать тебе)</span></div>
+                        <div class="ex"><span class="zh">对</span> <span class="pinyin">duì</span> <span class="trans">по отношению к — 对他笑 (улыбнуться ему)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.8 连词 (Союзы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连接词语或短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">和</span> <span class="pinyin">hé</span> <span class="trans">и — 我和你 (я и ты)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.9 助词 (Частицы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">结构助词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">的</span> <span class="pinyin">de</span> <span class="trans">принадлежность — 我的书 (моя книга)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动态助词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">了</span> <span class="pinyin">le</span> <span class="trans">завершённость — 我吃了饭 (я поел)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">语气助词</span> Модальные частицы</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">吧</span> <span class="pinyin">ba</span> <span class="trans">побуждение — 走吧 (пошли)</span></div>
+                        <div class="ex"><span class="zh">了</span> <span class="pinyin">le</span> <span class="trans">изменение — 下雨了 (пошёл дождь)</span></div>
+                        <div class="ex"><span class="zh">吗</span> <span class="pinyin">ma</span> <span class="trans">вопрос — 你好吗？(как дела?)</span></div>
+                        <div class="ex"><span class="zh">呢</span> <span class="pinyin">ne</span> <span class="trans">вопрос о ситуации — 你呢？(а ты?)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.10 叹词 (Междометия)</div>
+                <div class="rule">
+                    <div class="examples">
+                        <div class="ex"><span class="zh">喂</span> <span class="pinyin">wèi</span> <span class="trans">Алло! — 喂，你好！(Алло, здравствуйте!)</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 3. 短语 -->
-            <div class="grammar-block">
-                <div class="block-title">3. 短语 (Словосочетания) <span class="ru">— сочетания из двух и более слов</span></div>
-                <div class="note">В китайском языке словосочетания строятся по определённым моделям. Понимание структуры помогает правильно строить предложения.</div>
-
-                <div class="sub-title">3.1 结构类型 (Типы структур)</div>
-                <ul>
-                    <li><span class="tag">联合短语</span> <b>Однородные члены (сочинительная связь).</b> <br>
-                        <span class="example">老师和同学 (lǎoshī hé tóngxué) — учитель и одноклассники</span> <br>
-                        <span class="example">又大又红 (yòu dà yòu hóng) — и большой, и красный</span>
-                    </li>
-                    <li><span class="tag">偏正短语</span> <b>Главное слово + зависимое слово (определительная связь).</b> <br>
-                        <span class="example">很大的房子 (hěn dà de fángzi) — очень большой дом</span> (определение перед существительным) <br>
-                        <span class="example">慢慢走 (mànmàn zǒu) — медленно идти</span> (наречие перед глаголом)
-                    </li>
-                    <li><span class="tag">动宾短语</span> <b>Глагол + объект (на что направлено действие).</b> <br>
-                        <span class="example">看书 (kàn shū) — читать книгу</span> <br>
-                        <span class="example">喝茶 (hē chá) — пить чай</span>
-                    </li>
-                    <li><span class="tag">主谓短语</span> <b>Подлежащее + сказуемое.</b> <br>
-                        <span class="example">天气好 (tiānqì hǎo) — погода хорошая</span> <br>
-                        <span class="example">我喜欢 (wǒ xǐhuān) — я люблю (незаконченная структура, но основа для предложения)</span>
-                    </li>
-                    <li><span class="tag">数量短语</span> <b>Числительное + счётное слово.</b> <br>
-                        <span class="example">三个 (sān gè) — три (штуки)</span> <br>
-                        <span class="example">两本书 (liǎng běn shū) — две книги</span>
-                    </li>
-                    <li><span class="tag">介宾短语</span> <b>Предлог + существительное (обстоятельство).</b> <br>
-                        <span class="example">在北京 (zài Běijīng) — в Пекине</span> <br>
-                        <span class="example">从学校 (cóng xuéxiào) — из школы</span>
-                    </li>
-                    <li><span class="tag">方位短语</span> <b>Существительное + слово направления (указывает местоположение).</b> <br>
-                        <span class="example">桌子上 (zhuōzi shàng) — на столе</span> <br>
-                        <span class="example">教室里 (jiàoshì lǐ) — в классе</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">3. 短语 (Словосочетания)</div>
+                <div class="section-sub">3.1 结构类型</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">联合短语</span> Однородные члены</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">老师和同学</span> <span class="trans">учитель и одноклассники</span></div>
+                        <div class="ex"><span class="zh">又大又红</span> <span class="trans">и большой, и красный</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">偏正短语</span> Главное + зависимое</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">很大的房子</span> <span class="trans">очень большой дом</span></div>
+                        <div class="ex"><span class="zh">慢慢走</span> <span class="trans">медленно идти</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动宾短语</span> Глагол + объект</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">看书</span> <span class="trans">читать книгу</span></div>
+                        <div class="ex"><span class="zh">喝茶</span> <span class="trans">пить чай</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓短语</span> Подлежащее + сказуемое</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">天气好</span> <span class="trans">погода хорошая</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">数量短语</span> Числительное + счётное слово</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">三个</span> <span class="trans">три (штуки)</span></div>
+                        <div class="ex"><span class="zh">两本书</span> <span class="trans">две книги</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">介宾短语</span> Предлог + существительное</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">在北京</span> <span class="trans">в Пекине</span></div>
+                        <div class="ex"><span class="zh">从学校</span> <span class="trans">из школы</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">方位短语</span> Существительное + направление</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">桌子上</span> <span class="trans">на столе</span></div>
+                        <div class="ex"><span class="zh">教室里</span> <span class="trans">в классе</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 4. 句子成分 -->
-            <div class="grammar-block">
-                <div class="block-title">4. 句子成分 (Члены предложения)</div>
-                <div class="note">Каждый член предложения выполняет свою функцию. В китайском языке порядок слов строгий: подлежащее — сказуемое — дополнение.</div>
-                <ul>
-                    <li><span class="tag">主语 (Подлежащее)</span> <b>То, о ком или о чём говорится в предложении.</b> <br>
-                        <span class="example">我 (wǒ) — я</span> → <span class="example">我是学生 (Wǒ shì xuéshēng) — Я студент.</span>
-                    </li>
-                    <li><span class="tag">谓语 (Сказуемое)</span> <b>То, что говорится о подлежащем (действие, состояние, качество).</b> <br>
-                        <span class="example">他是老师 (Tā shì lǎoshī) — Он учитель.</span> (глагол-связка 是) <br>
-                        <span class="example">天气好 (Tiānqì hǎo) — Погода хорошая.</span> (прилагательное в роли сказуемого)
-                    </li>
-                    <li><span class="tag">宾语 (Дополнение)</span> <b>Объект, на который направлено действие.</b> <br>
-                        <span class="example">看书 (kàn shū) — читать книгу</span> (книга — дополнение)
-                    </li>
-                    <li><span class="tag">定语 (Определение)</span> <b>Признак предмета (отвечает на вопрос «какой?»).</b> <br>
-                        <span class="example">我的书 (wǒ de shū) — моя книга</span> (моя — определение) <br>
-                        <span class="example">大房子 (dà fángzi) — большой дом</span> (большой — определение)
-                    </li>
-                    <li><span class="tag">状语 (Обстоятельство)</span> <b>Уточняет действие (время, место, способ, степень).</b> <br>
-                        <span class="example">很好 (hěn hǎo) — очень хорошо</span> (очень — обстоятельство степени) <br>
-                        <span class="example">今天去 (jīntiān qù) — идти сегодня</span> (сегодня — обстоятельство времени)
-                    </li>
-                    <li><span class="tag">补语 (Дополнение-уточнение)</span> <b>Уточняет результат, количество или направление действия. Стоит после глагола.</b> <br>
-                        <span class="example">去一次 (qù yī cì) — сходить один раз</span> (раз — количественное дополнение-уточнение)
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">4. 句子成分 (Члены предложения)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主语</span> Подлежащее</div>
+                    <div class="desc">То, о ком или о чём говорится.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我</span> <span class="trans">я — 我是学生 (Я студент)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">谓语</span> Сказуемое</div>
+                    <div class="desc">То, что говорится о подлежащем.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">是老师</span> <span class="trans">учитель — 他是老师 (Он учитель)</span></div>
+                        <div class="ex"><span class="zh">好</span> <span class="trans">хорошая — 天气好 (Погода хорошая)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">宾语</span> Дополнение</div>
+                    <div class="desc">Объект, на который направлено действие.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">书</span> <span class="trans">книгу — 看书 (читать книгу)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">定语</span> Определение</div>
+                    <div class="desc">Признак предмета.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我的</span> <span class="trans">моя — 我的书 (моя книга)</span></div>
+                        <div class="ex"><span class="zh">大</span> <span class="trans">большой — 大房子 (большой дом)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">状语</span> Обстоятельство</div>
+                    <div class="desc">Уточняет действие (время, место, способ).</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">很</span> <span class="trans">очень — 很好 (очень хорошо)</span></div>
+                        <div class="ex"><span class="zh">今天</span> <span class="trans">сегодня — 今天去 (идти сегодня)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">补语</span> Уточнение действия</div>
+                    <div class="desc">Показывает результат, количество или направление.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">一次</span> <span class="trans">один раз — 去一次 (сходить один раз)</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 5. 句子的类型 -->
-            <div class="grammar-block">
-                <div class="block-title">5. 句子的类型 (Типы предложений)</div>
-
-                <div class="sub-title">5.1 句型 (По структуре)</div>
-                <ul>
-                    <li><span class="tag">主谓句1</span> <b>Глагольное сказуемое.</b> <br>
-                        <span class="example">我吃饭 (Wǒ chīfàn) — Я ем.</span>
-                    </li>
-                    <li><span class="tag">主谓句2</span> <b>Адъективное сказуемое (прилагательное в роли сказуемого).</b> <br>
-                        <span class="example">天气很好 (Tiānqì hěn hǎo) — Погода очень хорошая.</span>
-                    </li>
-                    <li><span class="tag">主谓句3</span> <b>Именное сказуемое (существительное в роли сказуемого).</b> <br>
-                        <span class="example">今天星期六 (Jīntiān xīngqīliù) — Сегодня суббота.</span>
-                    </li>
-                    <li><span class="tag">非主谓句</span> <b>Предложения без явного подлежащего.</b> <br>
-                        <span class="example">下雨了 (Xiàyǔ le) — Пошёл дождь.</span> <br>
-                        <span class="example">请进！(Qǐng jìn!) — Входите!</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">5.2 句类 (По цели высказывания)</div>
-                <ul>
-                    <li><span class="tag">陈述句 (Повествовательное)</span> <b>Сообщает факт или информацию.</b> <br>
-                        <span class="example">我是学生 (Wǒ shì xuéshēng) — Я студент.</span>
-                    </li>
-                    <li><span class="tag">疑问句 (Вопросительное)</span> <br>
-                        <span class="example">是非问句 (Да/нет вопрос)</span> — <span class="example">你好吗？(Nǐ hǎo ma?) — Как дела?</span> <br>
-                        <span class="example">特指问句 (Вопрос со специальным словом)</span> — <span class="example">你去哪儿？(Nǐ qù nǎr?) — Куда ты идёшь?</span> <br>
-                        <span class="example">正反问句 (Альтернативный вопрос)</span> — <span class="example">你是不是学生？(Nǐ shì bù shì xuéshēng?) — Ты студент или нет?</span>
-                    </li>
-                    <li><span class="tag">祈使句 (Побудительное)</span> <b>Выражает просьбу, приказ, совет.</b> <br>
-                        <span class="example">请坐！(Qǐng zuò!) — Садитесь!</span>
-                    </li>
-                    <li><span class="tag">感叹句 (Восклицательное)</span> <b>Выражает эмоции.</b> <br>
-                        <span class="example">太好了！(Tài hǎo le!) — Отлично!</span> <br>
-                        <span class="example">真漂亮！(Zhēn piàoliang!) — Очень красиво!</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">5.3 特殊句型 (Особые конструкции)</div>
-                <ul>
-                    <li><span class="tag">“是”字句1</span> <b>Указывает на принадлежность, класс или тождество (А является Б).</b> <br>
-                        <span class="example">他是老师 (Tā shì lǎoshī) — Он учитель.</span> <br>
-                        <span class="example">这是书 (Zhè shì shū) — Это книга.</span>
-                    </li>
-                    <li><span class="tag">“有”字句1</span> <b>Указывает на наличие/обладание (у кого-то есть что-то).</b> <br>
-                        <span class="example">我有一本书 (Wǒ yǒu yī běn shū) — У меня есть книга.</span> <br>
-                        <span class="example">他有三个朋友 (Tā yǒu sān gè péngyou) — У него три друга.</span>
-                    </li>
-                    <li><span class="tag">存现句1 (Предложения существования)</span> <b>Указывают на наличие предмета/лица в определённом месте.</b> <br>
-                        <span class="example">处所 + 是/有 + 名词</span> — <span class="example">桌子上有一本书 (Zhuōzi shàng yǒu yī běn shū) — На столе есть книга.</span> <br>
-                        <span class="example">学校后边是商店 (Xuéxiào hòubian shì shāngdiàn) — За школой магазин.</span>
-                    </li>
-                    <li><span class="tag">连动句1 (Предложение с двумя глаголами)</span> <b>Один субъект выполняет два последовательных действия.</b> <br>
-                        <span class="example">我去商店买东西 (Wǒ qù shāngdiàn mǎi dōngxi) — Я иду в магазин покупать вещи.</span> (первое действие — «пойти», второе — «купить», и второе является целью первого) <br>
-                        <span class="example">坐车去学校 (Zuò chē qù xuéxiào) — Ехать на машине в школу.</span> (первое действие — способ совершения второго)
-                    </li>
-                    <li><span class="tag">双宾语句1 (Предложение с двумя дополнениями)</span> <b>Глагол имеет два дополнения: кому (косвенное) и что (прямое).</b> <br>
-                        <span class="example">主语 + 动词 + 宾语1(кому) + 宾语2(что)</span> — <span class="example">我给他一本书 (Wǒ gěi tā yī běn shū) — Я даю ему книгу.</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">5.4 复句 (Сложносочинённые предложения)</div>
-                <ul>
-                    <li><span class="tag">并列复句</span> <b>Два равноправных предложения с союзами.</b> <br>
-                        <span class="example">……，也……</span> — <span class="example">他喜欢音乐，也喜欢运动 (Tā xǐhuān yīnyuè, yě xǐhuān yùndòng) — Он любит музыку, и (также) любит спорт.</span> <br>
-                        <span class="example">……，还……</span> — <span class="example">我吃了饭，还喝了水 (Wǒ chī le fàn, hái hē le shuǐ) — Я поел и ещё выпил воды.</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">5. 句子的类型 (Типы предложений)</div>
+                <div class="section-sub">5.1 句型 (По структуре)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓句1</span> Глагольное сказуемое</div>
+                    <div class="examples"><div class="ex"><span class="zh">我吃饭</span> <span class="trans">Я ем</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓句2</span> Адъективное сказуемое</div>
+                    <div class="examples"><div class="ex"><span class="zh">天气很好</span> <span class="trans">Погода очень хорошая</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓句3</span> Именное сказуемое</div>
+                    <div class="examples"><div class="ex"><span class="zh">今天星期六</span> <span class="trans">Сегодня суббота</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">非主谓句</span> Без подлежащего</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">下雨了</span> <span class="trans">Пошёл дождь</span></div>
+                        <div class="ex"><span class="zh">请进！</span> <span class="trans">Входите!</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">5.2 句类 (По цели)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">陈述句</span> Повествовательное</div>
+                    <div class="examples"><div class="ex"><span class="zh">我是学生</span> <span class="trans">Я студент</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">疑问句</span> Вопросительное</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">你好吗？</span> <span class="trans">Как дела? (是非问)</span></div>
+                        <div class="ex"><span class="zh">你去哪儿？</span> <span class="trans">Куда ты идёшь? (特指问)</span></div>
+                        <div class="ex"><span class="zh">你是不是学生？</span> <span class="trans">Ты студент или нет? (正反问)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">祈使句</span> Побудительное</div>
+                    <div class="examples"><div class="ex"><span class="zh">请坐！</span> <span class="trans">Садитесь!</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">感叹句</span> Восклицательное</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">太好了！</span> <span class="trans">Отлично!</span></div>
+                        <div class="ex"><span class="zh">真漂亮！</span> <span class="trans">Очень красиво!</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">5.3 特殊句型</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“是”字句1</span> Равенство или принадлежность</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">他是老师</span> <span class="trans">Он учитель</span></div>
+                        <div class="ex"><span class="zh">这是书</span> <span class="trans">Это книга</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“有”字句1</span> Наличие</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我有一本书</span> <span class="trans">У меня есть книга</span></div>
+                        <div class="ex"><span class="zh">他有三个朋友</span> <span class="trans">У него три друга</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">存现句1</span> Где что есть</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">桌子上有一本书</span> <span class="trans">На столе есть книга</span></div>
+                        <div class="ex"><span class="zh">学校后边是商店</span> <span class="trans">За школой магазин</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连动句1</span> Два действия подряд</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我去商店买东西</span> <span class="trans">Я иду в магазин за покупками</span></div>
+                        <div class="ex"><span class="zh">坐车去学校</span> <span class="trans">Ехать на машине в школу</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">双宾语句1</span> Два дополнения</div>
+                    <div class="desc">Глагол имеет два дополнения: кому и что.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我给他一本书</span> <span class="trans">Я даю ему книгу</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">5.4 复句</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">并列复句</span> Союзные сложные</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">他喜欢音乐，也喜欢运动</span> <span class="trans">Он любит музыку и спорт</span></div>
+                        <div class="ex"><span class="zh">我吃了饭，还喝了水</span> <span class="trans">Я поел и выпил воды</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 6. 动作的态 -->
-            <div class="grammar-block">
-                <div class="block-title">6. 动作的态 (Виды действия)</div>
-                <div class="note">В китайском языке вид действия показывает, как протекает действие во времени. Это передаётся с помощью специальных частиц.</div>
-                <ul>
-                    <li><span class="tag">完成态 (Завершённое действие)</span> <b>Действие уже завершено к моменту речи.</b> <br>
-                        <span class="example">用动态助词“了”表示</span> — <span class="example">我吃了饭 (Wǒ chī le fàn) — Я поел (действие завершено).</span>
-                    </li>
-                    <li><span class="tag">变化态 (Изменение состояния)</span> <b>Наступление нового состояния или появление нового обстоятельства.</b> <br>
-                        <span class="example">用语气助词“了”表示</span> — <span class="example">下雨了 (Xiàyǔ le) — Пошёл дождь.</span> <br>
-                        <span class="example">他走了 (Tā zǒu le) — Он ушёл (и теперь его нет).</span>
-                    </li>
-                    <li><span class="tag">进行态 (Длительное действие)</span> <b>Действие происходит прямо сейчас или в данный период.</b> <br>
-                        <span class="example">……在/正在 + 动词</span> — <span class="example">他在看书 (Tā zài kàn shū) — Он читает книгу (прямо сейчас).</span> <br>
-                        <span class="example">……在/正在 + 动词……+呢</span> — <span class="example">他正在吃饭呢 (Tā zhèngzài chīfàn ne) — Он сейчас как раз ест.</span> <br>
-                        <span class="example">……呢</span> — <span class="example">他看书呢 (Tā kàn shū ne) — Он читает (в данный момент).</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">6. 动作的态 (Виды действия)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">完成态</span> Действие завершено</div>
+                    <div class="desc">用动态助词“了”表示.</div>
+                    <div class="examples"><div class="ex"><span class="zh">我吃了饭</span> <span class="trans">Я поел</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">变化态</span> Новое состояние</div>
+                    <div class="desc">用语气助词“了”表示.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">下雨了</span> <span class="trans">Пошёл дождь</span></div>
+                        <div class="ex"><span class="zh">他走了</span> <span class="trans">Он ушёл</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">进行态</span> Действие происходит сейчас</div>
+                    <div class="desc">在/正在 + 动词；……在/正在 + 动词……呢；……呢.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">他在看书</span> <span class="trans">Он читает книгу</span></div>
+                        <div class="ex"><span class="zh">他正在吃饭呢</span> <span class="trans">Он как раз ест</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 7. 特殊表达法 -->
-            <div class="grammar-block">
-                <div class="block-title">7. 特殊表达法 (Особые выражения)</div>
-                <ul>
-                    <li><span class="tag">钱数表示法</span> <b>В китайском языке деньги называют двумя способами: 块 (юань) и 毛 (цзяо).</b> <br>
-                        <span class="example">十块五毛 (shí kuài wǔ máo) — 10 юаней 5 цзяо (10,5 юаня)</span> <br>
-                        <span class="example">一百二十元 (yībǎi èrshí yuán) — 120 юаней</span>
-                    </li>
-                    <li><span class="tag">序数表达法1</span> <b>Порядковые числительные образуются с помощью приставки 第.</b> <br>
-                        <span class="example">第一 (dì-yī) — первый</span> <br>
-                        <span class="example">第二十 (dì-èrshí) — двадцатый</span>
-                    </li>
-                    <li><span class="tag">时间表示法</span> <b>Время в китайском языке имеет свою структуру: год-месяц-день-час-минута.</b> <br>
-                        <span class="example">2026年9月8日 (2026 nián 9 yuè 8 rì) — 8 сентября 2026 года</span> <br>
-                        <span class="example">星期天 (xīngqītiān) — воскресенье</span> <br>
-                        <span class="example">三点二十分 (sān diǎn èrshí fēn) — 3:20</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">7. 特殊表达法</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">钱数表示法</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">十块五毛</span> <span class="trans">10 юаней 5 цзяо</span></div>
+                        <div class="ex"><span class="zh">一百二十元</span> <span class="trans">120 юаней</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">序数表示法1</span> 第 + 数词</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">第一</span> <span class="trans">первый</span></div>
+                        <div class="ex"><span class="zh">第二十</span> <span class="trans">двадцатый</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">时间表示法</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">2026年9月8日</span> <span class="trans">8 сентября 2026 года</span></div>
+                        <div class="ex"><span class="zh">三点二十分</span> <span class="trans">3:20</span></div>
+                        <div class="ex"><span class="zh">星期天</span> <span class="trans">воскресенье</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="footer-note">HSK 1 · Грамматика — Новая версия экзамена</div>
+            <div class="footer-note">HSK 1 · Полная грамматика</div>
         </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== HSK 2 ГРАММАТИКА С ОБЪЯСНЕНИЯМИ ===== -->
+    <!-- ===== HSK 2 ===== -->
     <!-- ============================================================ -->
     <div id="tab-hsk2-grammar" class="tab-content">
         <div class="page">
             <h1>📗 HSK 2 · Грамматика</h1>
-            <div class="subtitle">Новая версия экзамена · Полный справочник с объяснениями</div>
+            <div class="subtitle">Полный список правил — просто и понятно</div>
 
-            <div class="grammar-block">
-                <div class="block-title">1. 语素 (Морфемы)</div>
-                <ul>
-                    <li><span class="tag">后缀 —面</span> <b>Образует существительные, указывающие на сторону или поверхность.</b> <br>
-                        <span class="example">前面 (qiánmiàn) — передняя сторона</span> <br>
-                        <span class="example">后面 (hòumiàn) — задняя сторона</span> <br>
-                        <span class="example">上面 (shàngmiàn) — верхняя сторона</span> <br>
-                        <span class="example">下面 (xiàmiàn) — нижняя сторона</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">1. 语素 (Морфемы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">—面</span> Сторона/поверхность</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">前面/后面</span> <span class="trans">передняя/задняя сторона</span></div>
+                        <div class="ex"><span class="zh">上面/下面</span> <span class="trans">верхняя/нижняя сторона</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">2. 词类 (Части речи)</div>
-
-                <div class="sub-title">2.1 名词</div>
-                <ul>
-                    <li><span class="tag">方位名词</span> 左、右 <span class="example">左边 (zuǒbian) — слева</span> <span class="example">右边 (yòubian) — справа</span></li>
-                </ul>
-
-                <div class="sub-title">2.2 动词</div>
-                <ul>
-                    <li><span class="tag">动词重叠 (Повтор глагола)</span> <b>Используется для смягчения действия или выражения краткости.</b> <br>
-                        <span class="example">AA — 看看 (kànkan) — посмотреть (немного)</span> <br>
-                        <span class="example">A一A — 看一看 (kàn yī kàn) — взглянуть (один раз)</span> <br>
-                        <span class="example">A了A — 看了看 (kàn le kàn) — посмотрел (сделал это быстро)</span> <br>
-                        <span class="example">ABAB — 讨论讨论 (tǎolùn tǎolùn) — немного обсудить</span>
-                    </li>
-                    <li><span class="tag">能愿动词</span> 可能 (kěnéng) — возможно/может быть <span class="example">他可能来了 (Tā kěnéng lái le) — Он, возможно, пришёл.</span></li>
-                    <li><span class="tag">离合词</span> 帮忙、游泳、跳舞、跑步 <span class="example">帮个忙 (bāng gè máng) — помочь (букв. «сделать одно одолжение»)</span> <span class="example">游了泳 (yóu le yǒng) — поплавал</span></li>
-                </ul>
-
-                <div class="sub-title">2.3 代词</div>
-                <ul>
-                    <li><span class="tag">疑问代词</span> 为什么 (wèishénme) — почему <span class="example">你为什么不来？(Nǐ wèishénme bù lái?) — Почему ты не идёшь?</span></li>
-                    <li><span class="tag">人称代词</span> 自己 (zìjǐ) — сам/себя <span class="example">我自己去 (Wǒ zìjǐ qù) — Я пойду сам.</span></li>
-                    <li><span class="tag">指示代词</span> 那么、那样、这么、这样、每 <span class="example">那么远 (nàme yuǎn) — так далеко</span> <span class="example">这样好 (zhèyàng hǎo) — так хорошо</span> <span class="example">每个人 (měi gè rén) — каждый человек</span></li>
-                </ul>
-
-                <div class="sub-title">2.4 形容词</div>
-                <ul>
-                    <li><span class="tag">形容词重叠 (Повтор прилагательного)</span> <b>Придаёт более яркое, образное выражение или смягчает признак.</b> <br>
-                        <span class="example">AA — 红红的 (hóng hóng de) — красный-красный</span> <br>
-                        <span class="example">AABB — 高高兴兴 (gāo gāo xìng xìng) — очень радостно</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.5 数词</div>
-                <ul>
-                    <li>万 (wàn) — десять тысяч <span class="example">一万 (yī wàn) — 10 000</span></li>
-                    <li>好多 (hǎoduō) — много/много-много <span class="example">好多人 (hǎoduō rén) — много людей</span></li>
-                    <li>多 (duō) — насколько (в вопросах) <span class="example">多大？(Duō dà?) — Насколько большой/сколько лет?</span></li>
-                </ul>
-
-                <div class="sub-title">2.6 量词</div>
-                <ul>
-                    <li><span class="tag">名量词</span> 条 (tiáo) — для длинных предметов <span class="example">一条鱼 (yī tiáo yú) — одна рыба</span> <br>
-                        <span class="example">位 (wèi) — вежливое счётное для людей</span> — <span class="example">一位老师 (yī wèi lǎoshī) — один учитель</span> <br>
-                        <span class="example">间 (jiān) — для комнат</span> — <span class="example">一间教室 (yī jiān jiàoshì) — один класс</span> <br>
-                        <span class="example">名 (míng) — для людей (официальное)</span> — <span class="example">一名学生 (yī míng xuéshēng) — один ученик</span>
-                    </li>
-                    <li><span class="tag">借用名量词</span> 包 (bāo) — для вещей в упаковке <span class="example">一包糖 (yī bāo táng) — пакет конфет</span></li>
-                    <li><span class="tag">动量词</span> 次 (cì) — количество действий <span class="example">去一次 (qù yī cì) — сходить один раз</span></li>
-                </ul>
-
-                <div class="sub-title">2.7 副词</div>
-                <ul>
-                    <li><span class="tag">程度副词</span> 多 (duō) — насколько <span class="example">多大？(duō dà?) — насколько большой?</span> <br>
-                        <span class="example">好 (hǎo) — очень (в разговорной речи)</span> — <span class="example">好冷 (hǎo lěng) — очень холодно</span> <br>
-                        <span class="example">最 (zuì) — самый</span> — <span class="example">最好 (zuì hǎo) — самый лучший</span>
-                    </li>
-                    <li><span class="tag">时间副词</span> 还 (hái) — ещё (продолжение состояния) <span class="example">还没来 (hái méi lái) — ещё не пришёл</span> <br>
-                        <span class="example">已经 (yǐjīng) — уже</span> — <span class="example">已经走了 (yǐjīng zǒu le) — уже ушёл</span> <br>
-                        <span class="example">快/快要 (kuài/kuàiyào) — скоро</span> — <span class="example">快要下雨了 (kuàiyào xiàyǔ le) — скоро пойдёт дождь</span>
-                    </li>
-                    <li><span class="tag">否定副词</span> 别 (bié) — не (запрет) <span class="example">别说话！(Bié shuōhuà!) — Не говори!</span></li>
-                    <li><span class="tag">关联副词</span> 再 (zài) — снова/ещё (о будущем действии) <span class="example">再来 (zài lái) — прийти ещё раз</span> <br>
-                        <span class="example">就 (jiù) — сразу же/тогда</span> — <span class="example">我这就去 (wǒ zhè jiù qù) — я сейчас же иду</span>
-                    </li>
-                    <li><span class="tag">语气副词</span> 都 (dōu) — уже (подчёркивает неожиданность) <span class="example">都九点了 (dōu jiǔ diǎn le) — уже девять часов!</span> <br>
-                        <span class="example">还是 (háishì) — всё ещё/всё-таки</span> — <span class="example">他还是来了 (tā háishì lái le) — он всё-таки пришёл</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.8 介词</div>
-                <ul>
-                    <li><span class="tag">引出时间、处所</span> 从 (cóng) — от/из/с <span class="example">从北京来 (cóng Běijīng lái) — приехал из Пекина</span> <span class="example">从明天开始 (cóng míngtiān kāishǐ) — начиная с завтра</span></li>
-                    <li><span class="tag">引出方向、路径</span> 往 (wǎng) — в направлении <span class="example">往前走 (wǎng qián zǒu) — идти вперёд</span></li>
-                    <li><span class="tag">引出对象</span> 给 (gěi) — дать кому-то <span class="example">给我书 (gěi wǒ shū) — дать мне книгу</span> <br>
-                        <span class="example">比 (bǐ) — сравнительный предлог</span> — <span class="example">比他高 (bǐ tā gāo) — выше него</span> <br>
-                        <span class="example">跟 (gēn) — с (совместное действие)</span> — <span class="example">跟我去 (gēn wǒ qù) — пойти со мной</span>
-                    </li>
-                    <li><span class="tag">引出原因</span> 因为 (yīnwèi) — потому что <span class="example">因为下雨，我不去了 (yīnwèi xiàyǔ, wǒ bù qù le) — потому что дождь, я не иду</span></li>
-                </ul>
-
-                <div class="sub-title">2.9 连词</div>
-                <ul>
-                    <li><span class="tag">连接分句</span> 但/但是 (dàn/dànshì) — но <span class="example">虽然很累，但是很高兴 (suīrán hěn lèi, dànshì hěn gāoxìng) — хотя устал, но очень рад</span> <br>
-                        <span class="example">所以 (suǒyǐ) — поэтому</span> — <span class="example">下雨了，所以我不去了 (xiàyǔ le, suǒyǐ wǒ bù qù le) — пошёл дождь, поэтому я не иду</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.10 助词</div>
-                <ul>
-                    <li><span class="tag">结构助词</span> 得 (de) — показатель степени/способа действия <span class="example">跑得快 (pǎo de kuài) — быстро бегать</span> <br>
-                        <span class="example">地 (de) — показатель наречия (способ действия)</span> — <span class="example">高兴地说 (gāoxìng de shuō) — радостно сказать</span>
-                    </li>
-                    <li><span class="tag">动态助词</span> 过 (guò) — опыт совершения действия в прошлом <span class="example">去过北京 (qùguò Běijīng) — был в Пекине (имеет такой опыт)</span> <br>
-                        <span class="example">着 (zhe) — длительное действие или состояние</span> — <span class="example">坐着看书 (zuòzhe kàn shū) — сидеть и читать</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">2. 词类 (Части речи)</div>
+                <div class="section-sub">2.1 名词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">方位名词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">左/右</span> <span class="trans">левый/правый — 左边/右边 (слева/справа)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.2 动词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动词重叠</span> Повтор глагола</div>
+                    <div class="desc">Для смягчения действия или выражения краткости.</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">AA</span> <span class="pinyin">kànkan</span> <span class="trans">посмотреть (немного)</span></div>
+                        <div class="ex"><span class="zh">A一A</span> <span class="pinyin">kàn yī kàn</span> <span class="trans">взглянуть (один раз)</span></div>
+                        <div class="ex"><span class="zh">A了A</span> <span class="pinyin">kàn le kàn</span> <span class="trans">посмотрел (быстро)</span></div>
+                        <div class="ex"><span class="zh">ABAB</span> <span class="pinyin">tǎolùn tǎolùn</span> <span class="trans">немного обсудить</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">能愿动词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">可能</span> <span class="pinyin">kěnéng</span> <span class="trans">возможно — 他可能来了 (Он, возможно, пришёл)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">离合词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">帮忙</span> <span class="pinyin">bāngmáng</span> <span class="trans">помогать — 帮个忙 (сделать одолжение)</span></div>
+                        <div class="ex"><span class="zh">游泳/跳舞/跑步</span> <span class="trans">плавать/танцевать/бегать</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.3 代词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">疑问代词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">为什么</span> <span class="pinyin">wèishénme</span> <span class="trans">почему</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">人称代词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">自己</span> <span class="pinyin">zìjǐ</span> <span class="trans">сам — 我自己去 (Я пойду сам)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">指示代词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">那么/那样</span> <span class="trans">так — 那么远 (так далеко)</span></div>
+                        <div class="ex"><span class="zh">这么/这样</span> <span class="trans">так — 这样好 (так хорошо)</span></div>
+                        <div class="ex"><span class="zh">每</span> <span class="pinyin">měi</span> <span class="trans">каждый — 每个人 (каждый человек)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.4 形容词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">形容词重叠</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">AA</span> <span class="pinyin">hóng hóng de</span> <span class="trans">красный-красный</span></div>
+                        <div class="ex"><span class="zh">AABB</span> <span class="pinyin">gāo gāo xìng xìng</span> <span class="trans">очень радостно</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.5 数词</div>
+                <div class="rule">
+                    <div class="examples">
+                        <div class="ex"><span class="zh">万</span> <span class="pinyin">wàn</span> <span class="trans">десять тысяч — 一万 (10 000)</span></div>
+                        <div class="ex"><span class="zh">好多</span> <span class="pinyin">hǎoduō</span> <span class="trans">много — 好多人 (много людей)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.6 量词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">名量词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">条</span> <span class="pinyin">tiáo</span> <span class="trans">для длинных — 一条鱼 (одна рыба)</span></div>
+                        <div class="ex"><span class="zh">位</span> <span class="pinyin">wèi</span> <span class="trans">вежливое — 一位老师 (один учитель)</span></div>
+                        <div class="ex"><span class="zh">间</span> <span class="pinyin">jiān</span> <span class="trans">для комнат — 一间教室 (один класс)</span></div>
+                        <div class="ex"><span class="zh">名</span> <span class="pinyin">míng</span> <span class="trans">для людей — 一名学生 (один ученик)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">借用名量词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">包</span> <span class="pinyin">bāo</span> <span class="trans">пакет — 一包糖 (пакет конфет)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动量词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">次</span> <span class="pinyin">cì</span> <span class="trans">раз — 去一次 (сходить один раз)</span></div></div>
+                </div>
+                <div class="section-sub">2.7 副词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">程度副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">多</span> <span class="pinyin">duō</span> <span class="trans">насколько — 多大？(насколько большой?)</span></div>
+                        <div class="ex"><span class="zh">好</span> <span class="pinyin">hǎo</span> <span class="trans">очень — 好冷 (очень холодно)</span></div>
+                        <div class="ex"><span class="zh">最</span> <span class="pinyin">zuì</span> <span class="trans">самый — 最好 (самый лучший)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">范围副词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">一起</span> <span class="pinyin">yīqǐ</span> <span class="trans">вместе — 一起去 (пойти вместе)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">时间副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">还</span> <span class="pinyin">hái</span> <span class="trans">ещё — 还没来 (ещё не пришёл)</span></div>
+                        <div class="ex"><span class="zh">已经</span> <span class="pinyin">yǐjīng</span> <span class="trans">уже — 已经走了 (уже ушёл)</span></div>
+                        <div class="ex"><span class="zh">快/快要</span> <span class="pinyin">kuài/kuàiyào</span> <span class="trans">скоро — 快要下雨了 (скоро дождь)</span></div>
+                        <div class="ex"><span class="zh">正</span> <span class="pinyin">zhèng</span> <span class="trans">как раз — 正在吃饭 (как раз ест)</span></div>
+                        <div class="ex"><span class="zh">有时(候)</span> <span class="pinyin">yǒushí(hou)</span> <span class="trans">иногда</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">频率副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">常/经常</span> <span class="pinyin">cháng/jīngcháng</span> <span class="trans">часто</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">否定副词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">别</span> <span class="pinyin">bié</span> <span class="trans">не (запрет) — 别说话！(Не говори!)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">关联副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">再</span> <span class="pinyin">zài</span> <span class="trans">снова (в будущем) — 再来 (прийти ещё раз)</span></div>
+                        <div class="ex"><span class="zh">就</span> <span class="pinyin">jiù</span> <span class="trans">сразу — 我这就去 (я сейчас иду)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">语气副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">都</span> <span class="pinyin">dōu</span> <span class="trans">уже (неожиданность) — 都九点了 (уже 9 часов!)</span></div>
+                        <div class="ex"><span class="zh">就</span> <span class="pinyin">jiù</span> <span class="trans">именно — 就是他 (именно он)</span></div>
+                        <div class="ex"><span class="zh">还是</span> <span class="pinyin">háishì</span> <span class="trans">всё-таки — 他还是来了 (он всё-таки пришёл)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.8 介词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出时间、处所</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">从</span> <span class="pinyin">cóng</span> <span class="trans">из/от — 从北京来 (из Пекина), 从明天开始 (с завтра)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出方向、路径</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">往</span> <span class="pinyin">wǎng</span> <span class="trans">в направлении — 往前走 (идти вперёд)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出对象</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">给</span> <span class="pinyin">gěi</span> <span class="trans">кому — 给我书 (дать мне книгу)</span></div>
+                        <div class="ex"><span class="zh">比</span> <span class="pinyin">bǐ</span> <span class="trans">чем — 比他高 (выше него)</span></div>
+                        <div class="ex"><span class="zh">跟</span> <span class="pinyin">gēn</span> <span class="trans">с — 跟我去 (пойти со мной)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出原因</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">因为</span> <span class="pinyin">yīnwèi</span> <span class="trans">потому что — 因为下雨，我不去了</span></div></div>
+                </div>
+                <div class="section-sub">2.9 连词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连接词或短语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">跟</span> <span class="pinyin">gēn</span> <span class="trans">с — 我跟他一起去 (я иду с ним)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连接分句</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">但/但是</span> <span class="trans">но — 虽然很累，但是很高兴</span></div>
+                        <div class="ex"><span class="zh">所以</span> <span class="trans">поэтому — 下雨了，所以我不去了</span></div>
+                        <div class="ex"><span class="zh">那</span> <span class="trans">тогда — 那好吧 (тогда ладно)</span></div>
+                        <div class="ex"><span class="zh">虽然</span> <span class="trans">хотя — 虽然很累</span></div>
+                        <div class="ex"><span class="zh">还是</span> <span class="trans">всё же</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.10 助词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">结构助词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">得</span> <span class="pinyin">de</span> <span class="trans">способ — 跑得快 (быстро бегать)</span></div>
+                        <div class="ex"><span class="zh">地</span> <span class="pinyin">de</span> <span class="trans">наречие — 高兴地说 (радостно сказать)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动态助词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">过</span> <span class="pinyin">guò</span> <span class="trans">опыт — 去过北京 (был в Пекине)</span></div>
+                        <div class="ex"><span class="zh">着</span> <span class="pinyin">zhe</span> <span class="trans">длительность — 坐着看书 (сидеть и читать)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">语气助词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">呢</span> <span class="pinyin">ne</span> <span class="trans">продолжение — 在哪儿呢？</span></div>
+                        <div class="ex"><span class="zh">吧</span> <span class="pinyin">ba</span> <span class="trans">предложение — 走吧</span></div>
+                        <div class="ex"><span class="zh">的</span> <span class="pinyin">de</span> <span class="trans">уверенность — 是的</span></div>
+                        <div class="ex"><span class="zh">啊</span> <span class="pinyin">a</span> <span class="trans">восклицание</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">3. 短语 (Словосочетания)</div>
-                <ul>
-                    <li><span class="tag">动补短语</span> <b>Глагол + результат/направление действия.</b> <span class="example">说完 (shuō wán) — сказать до конца</span> <span class="example">做好 (zuò hǎo) — сделать хорошо</span></li>
-                    <li><span class="tag">“的”字短语</span> <b>Существительное, заменённое частицей 的.</b> <span class="example">我的 (wǒ de) — моё</span> <span class="example">红的 (hóng de) — красное</span></li>
-                    <li><span class="tag">连谓短语</span> <b>Два последовательных действия одного субъекта.</b> <span class="example">去商店买东西 (qù shāngdiàn mǎi dōngxi) — идти в магазин покупать вещи</span></li>
-                    <li><span class="tag">兼语短语</span> <b>Конструкция с двойным дополнением-подлежащим.</b> <span class="example">请他来 (qǐng tā lái) — пригласить его прийти</span> <span class="example">让他去 (ràng tā qù) — позволить ему пойти</span></li>
-                    <li><span class="tag">固定短语</span> 什么的 (shénme de) — что-то в этом роде <span class="example">买点水果什么的 (mǎi diǎn shuǐguǒ shénme de) — купить фруктов и что-то в этом роде</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">3. 短语 (Словосочетания)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动补短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">说完</span> <span class="trans">сказать до конца</span></div>
+                        <div class="ex"><span class="zh">做好</span> <span class="trans">сделать хорошо</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“的”字短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我的</span> <span class="trans">моё</span></div>
+                        <div class="ex"><span class="zh">红的</span> <span class="trans">красное</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连谓短语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">去商店买东西</span> <span class="trans">идти в магазин за покупками</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">兼语短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">请他来</span> <span class="trans">пригласить его прийти</span></div>
+                        <div class="ex"><span class="zh">让他去</span> <span class="trans">позволить ему пойти</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">固定短语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">什么的</span> <span class="trans">и тому подобное — 买点水果什么的</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">4. 固定格式</div>
-                <ul>
-                    <li><span class="tag">还是……吧</span> <b>Предложение выбора с оттенком совета.</b> <span class="example">还是你去吧 (háishì nǐ qù ba) — Всё-таки ты иди.</span></li>
-                    <li><span class="tag">要/快要/就要……了</span> <b>Скоро произойдёт действие.</b> <span class="example">要下雨了 (yào xiàyǔ le) — скоро пойдёт дождь</span> <span class="example">快要考试了 (kuàiyào kǎoshì le) — скоро экзамен</span></li>
-                    <li><span class="tag">都……了</span> <b>Уже наступило (подчёркивает, что время прошло).</b> <span class="example">都十二点了 (dōu shí'èr diǎn le) — уже двенадцать часов!</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">4. 固定格式</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">还是……吧</span> Всё-таки...</div>
+                    <div class="examples"><div class="ex"><span class="zh">还是你去吧</span> <span class="trans">Всё-таки ты иди</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">要/快要/就要……了</span> Скоро</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">要下雨了</span> <span class="trans">скоро пойдёт дождь</span></div>
+                        <div class="ex"><span class="zh">快要考试了</span> <span class="trans">скоро экзамен</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">都……了</span> Уже (неожиданно поздно)</div>
+                    <div class="examples"><div class="ex"><span class="zh">都十二点了</span> <span class="trans">уже двенадцать часов!</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">5. 句子成分</div>
-                <ul>
-                    <li><span class="tag">受事主语</span> <b>Подлежащее является объектом действия.</b> <span class="example">作业写完了 (zuòyè xiě wán le) — Домашняя работа написана (букв. «домашняя работа написалась»).</span></li>
-                    <li><span class="tag">结果补语</span> <b>Показывает результат действия.</b> <span class="example">动词 + 错/懂/好/会/完</span> — <span class="example">写错了 (xiě cuò le) — написал неправильно</span> <span class="example">看懂了 (kàn dǒng le) — понял (посмотрев)</span></li>
-                    <li><span class="tag">趋向补语</span> <b>Показывает направление движения.</b> <span class="example">拿来 (ná lái) — принести (сюда)</span> <span class="example">出去 (chū qù) — выйти (туда)</span> <span class="example">回来 (huí lái) — вернуться (сюда)</span></li>
-                    <li><span class="tag">复合趋向补语</span> <b>Более сложные направления.</b> <span class="example">出来、出去、过来、过去、回来、回去、进来、进去、起来、上来、上去、下来、下去</span> <br>
-                        <span class="example">走出来 (zǒu chūlái) — выйти (выйдя изнутри наружу, к говорящему)</span> <br>
-                        <span class="example">站起来 (zhàn qǐlái) — встать (подняться)</span>
-                    </li>
-                    <li><span class="tag">状态补语</span> <b>Описывает состояние или способ выполнения действия.</b> <span class="example">动词 + 得 + 形容词性短语</span> — <span class="example">跑得很快 (pǎo de hěn kuài) — бежать очень быстро</span> <br>
-                        <span class="example">高兴得跳起来 (gāoxìng de tiào qǐlái) — так обрадовался, что подпрыгнул</span>
-                    </li>
-                    <li><span class="tag">数量补语</span> <b>Показывает продолжительность действия или количество.</b> <span class="example">等了三个小时 (děng le sān gè xiǎoshí) — ждал три часа</span> <br>
-                        <span class="example">比他高五厘米 (bǐ tā gāo wǔ límǐ) — на пять сантиметров выше него</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">5. 句子成分</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">受事主语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">作业写完了</span> <span class="trans">Домашняя работа написана</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">名词性短语作谓语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">今天星期三</span> <span class="trans">Сегодня среда</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">结果补语1</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动词+错/懂/好/会/完</span> <span class="trans">写错了 (написал неправильно), 看懂了 (понял)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">趋向补语1</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动词+来/去</span> <span class="trans">拿来 (принести сюда), 出去 (выйти туда)</span></div>
+                        <div class="ex"><span class="zh">动词+上/下/进/出/过/回</span> <span class="trans">上/下/进/出/过/回</span></div>
+                        <div class="ex"><span class="zh">复合趋向补语</span> <span class="trans">出来/出去/过来/过去/回来/回去/进来/进去/起来/上来/上去/下来/下去</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">状态补语1</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动词+得+形容词性短语</span> <span class="trans">跑得很快 (бежать быстро)</span></div>
+                        <div class="ex"><span class="zh">高兴得跳起来</span> <span class="trans">так обрадовался, что подпрыгнул</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">数量补语2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">等了三个小时</span> <span class="trans">ждал три часа</span></div>
+                        <div class="ex"><span class="zh">比他高五厘米</span> <span class="trans">на 5 см выше него</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">6. 句子的类型</div>
-                <ul>
-                    <li><span class="tag">主谓谓语句</span> <b>Предложение, где сказуемое само является предложением (подлежащее + сказуемое).</b> <span class="example">他身体很好 (tā shēntǐ hěn hǎo) — У него здоровье хорошее (букв. «он, тело очень хорошее»).</span></li>
-                    <li><span class="tag">选择问句</span> <b>Вопрос с выбором, соединяется союзом 还是.</b> <span class="example">你喝茶还是咖啡？(nǐ hē chá háishì kāfēi?) — Ты будешь чай или кофе?</span></li>
-                    <li><span class="tag">比较句1</span> <b>Сравнение предметов по признаку.</b> <br>
-                        <span class="example">A比B+形容词</span> — <span class="example">他比我高 (tā bǐ wǒ gāo) — Он выше меня.</span> <br>
-                        <span class="example">A有/没有B+形容词</span> — <span class="example">他没有我高 (tā méiyǒu wǒ gāo) — Он не такой высокий, как я.</span>
-                    </li>
-                    <li><span class="tag">“是……的”句1</span> <b>Подчёркивает время, место, способ или действующее лицо.</b> <span class="example">我是昨天来的 (wǒ shì zuótiān lái de) — Я приехал именно вчера.</span> <br>
-                        <span class="example">他是坐车去的 (tā shì zuò chē qù de) — Он поехал именно на машине.</span>
-                    </li>
-                    <li><span class="tag">兼语句1</span> <b>Конструкция с двойным дополнением (просьба/разрешение).</b> <span class="example">老师让我回答问题 (lǎoshī ràng wǒ huídá wèntí) — Учитель просит меня ответить на вопрос.</span></li>
-                </ul>
-                <div class="sub-title">复句</div>
-                <ul>
-                    <li><span class="tag">转折复句</span> 虽然……，但是…… <span class="example">虽然很累，但是很高兴 (suīrán hěn lèi, dànshì hěn gāoxìng) — Хотя устал, но очень рад.</span></li>
-                    <li><span class="tag">因果复句</span> 因为……，所以…… <span class="example">因为下雨，所以我不去了 (yīnwèi xiàyǔ, suǒyǐ wǒ bù qù le) — Потому что дождь, поэтому я не иду.</span></li>
-                    <li><span class="tag">紧缩复句</span> 一……就…… <span class="example">我一到就给你打电话 (wǒ yī dào jiù gěi nǐ dǎ diànhuà) — Как только приду, сразу позвоню.</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">6. 句子的类型</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓谓语句</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">他身体很好</span> <span class="trans">У него здоровье хорошее</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">选择问句</span> (用“还是”)</div>
+                    <div class="examples"><div class="ex"><span class="zh">你喝茶还是咖啡？</span> <span class="trans">Ты будешь чай или кофе?</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“是”字句2</span> Объяснение/характеристика</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">他是中国人</span> <span class="trans">Он китаец</span></div>
+                        <div class="ex"><span class="zh">这是红色的</span> <span class="trans">Это красное</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“有”字句2</span> Достижение</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">有十个人</span> <span class="trans">есть десять человек</span></div>
+                        <div class="ex"><span class="zh">有三百页</span> <span class="trans">есть триста страниц</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">存现句2</span> 处所+动词+着+(数量)+名词</div>
+                    <div class="examples"><div class="ex"><span class="zh">桌子上放着一本书</span> <span class="trans">На столе лежит книга</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">比较句1</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">A比B+形容词</span> <span class="trans">他比我高 (Он выше меня)</span></div>
+                        <div class="ex"><span class="zh">A比B+形容词+数量补语</span> <span class="trans">他比我高五厘米</span></div>
+                        <div class="ex"><span class="zh">A有/没有B（+这么/那么）+形容词</span> <span class="trans">他没有我高 (Он не такой высокий, как я)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“是……的”句1</span> Подчёркивание</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我是昨天来的</span> <span class="trans">Я приехал именно вчера</span></div>
+                        <div class="ex"><span class="zh">他是坐车去的</span> <span class="trans">Он поехал именно на машине</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">兼语句1</span> 表使令</div>
+                    <div class="examples"><div class="ex"><span class="zh">老师让我回答问题</span> <span class="trans">Учитель просит меня ответить</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">双宾语句2</span> 主语+动词+给+宾语1+宾语2</div>
+                    <div class="examples"><div class="ex"><span class="zh">我给他一本书</span> <span class="trans">Я даю ему книгу</span></div></div>
+                </div>
+                <div class="section-sub">复句</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">选择复句</span> （是）……，还是……</div>
+                    <div class="examples"><div class="ex"><span class="zh">你是去还是不去？</span> <span class="trans">Ты идёшь или нет?</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">转折复句</span> 虽然……，但是……</div>
+                    <div class="examples"><div class="ex"><span class="zh">虽然很累，但是很高兴</span> <span class="trans">Хотя устал, но рад</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">因果复句</span> 因为……，所以……</div>
+                    <div class="examples"><div class="ex"><span class="zh">因为下雨，所以我不去了</span> <span class="trans">Из-за дождя я не иду</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">紧缩复句</span> 一……就……</div>
+                    <div class="examples"><div class="ex"><span class="zh">我一到就给你打电话</span> <span class="trans">Как только приду — позвоню</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">7. 动作的态</div>
-                <ul>
-                    <li><span class="tag">持续态</span> <b>Состояние или действие продолжается.</b> <span class="example">门开着 (mén kāizhe) — Дверь открыта (состояние).</span> <br>
-                        <span class="example">他坐着看书 (tā zuòzhe kàn shū) — Он сидит и читает (одновременные действия).</span>
-                    </li>
-                    <li><span class="tag">经历态</span> <b>Действие когда-то происходило (имеется опыт).</b> <span class="example">去过北京 (qùguò Běijīng) — был в Пекине (имеет опыт).</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">7. 动作的态</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">持续态</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">门开着</span> <span class="trans">Дверь открыта (состояние)</span></div>
+                        <div class="ex"><span class="zh">他坐着看书</span> <span class="trans">Он сидит и читает</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">经历态</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">去过北京</span> <span class="trans">Был в Пекине (имеет опыт)</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">8. 特殊表达法</div>
-                <ul>
-                    <li><span class="tag">序数表示法2</span> <b>Порядок может выражаться просто числительным + счётное слово.</b> <span class="example">三号 (sān hào) — номер три</span> <span class="example">五楼 (wǔ lóu) — пятый этаж</span></li>
-                    <li><span class="tag">概数表达法1</span> <b>Приблизительное количество.</b> <br>
-                        <span class="example">用“几”表示概数</span> — <span class="example">几个人 (jǐ gè rén) — несколько человек</span> <br>
-                        <span class="example">数词 + 多 + 量词</span> — <span class="example">十多岁 (shí duō suì) — больше десяти лет</span> <br>
-                        <span class="example">数词 + 量词 + 多</span> — <span class="example">三年多 (sān nián duō) — больше трёх лет</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">8. 特殊表达法</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">序数表示法2</span> 数词+量词</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">三号</span> <span class="trans">номер три</span></div>
+                        <div class="ex"><span class="zh">五楼</span> <span class="trans">пятый этаж</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">概数表达法1</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">几</span> <span class="trans">несколько — 几个人</span></div>
+                        <div class="ex"><span class="zh">数词+多+量词</span> <span class="trans">十多岁 (больше десяти лет)</span></div>
+                        <div class="ex"><span class="zh">数词+量词+多</span> <span class="trans">三年多 (больше трёх лет)</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="footer-note">HSK 2 · Грамматика — Новая версия экзамена</div>
+            <div class="footer-note">HSK 2 · Полная грамматика</div>
         </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== HSK 3 ГРАММАТИКА С ОБЪЯСНЕНИЯМИ ===== -->
+    <!-- ===== HSK 3 ===== -->
     <!-- ============================================================ -->
     <div id="tab-hsk3-grammar" class="tab-content">
         <div class="page">
             <h1>📙 HSK 3 · Грамматика</h1>
-            <div class="subtitle">Новая версия экзамена · Полный справочник с объяснениями</div>
+            <div class="subtitle">Полный список правил — просто и понятно</div>
 
-            <div class="grammar-block">
-                <div class="block-title">1. 语素 (Морфемы)</div>
-                <ul>
-                    <li><span class="tag">前缀 老—</span> <b>Приставка, образующая названия людей или уважительные обращения.</b> <span class="example">老师 (lǎoshī) — учитель</span> <span class="example">老板 (lǎobǎn) — начальник</span> <span class="example">老公 (lǎogōng) — муж (разг.)</span></li>
-                    <li><span class="tag">后缀 —家、—子、—员</span> <b>Образуют существительные по роду деятельности или принадлежности.</b> <span class="example">画家 (huàjiā) — художник</span> <span class="example">桌子 (zhuōzi) — стол</span> <span class="example">演员 (yǎnyuán) — актёр</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">1. 语素 (Морфемы)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">老—</span> Уважительная приставка</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">老师</span> <span class="trans">учитель</span></div>
+                        <div class="ex"><span class="zh">老板</span> <span class="trans">начальник</span></div>
+                        <div class="ex"><span class="zh">老公</span> <span class="trans">муж (разг.)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">—家、—子、—员</span> Суффиксы</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">画家</span> <span class="trans">художник</span></div>
+                        <div class="ex"><span class="zh">桌子</span> <span class="trans">стол</span></div>
+                        <div class="ex"><span class="zh">演员</span> <span class="trans">актёр</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">2. 词类 (Части речи)</div>
-
-                <div class="sub-title">2.1 名词</div>
-                <ul>
-                    <li><span class="tag">方位名词</span> 东、南、西、北、北方、东方、南方、西方、中间 <span class="example">北京在北方 (Běijīng zài běifāng) — Пекин на севере.</span> <span class="example">坐在中间 (zuò zài zhōngjiān) — сидеть посередине.</span></li>
-                </ul>
-
-                <div class="sub-title">2.2 动词</div>
-                <ul>
-                    <li><span class="tag">能愿动词</span> 需要 (xūyào) — нужно/требуется <span class="example">需要帮助 (xūyào bāngzhù) — нужна помощь</span> <br>
-                        <span class="example">该 (gāi) — следует/должен</span> — <span class="example">该走了 (gāi zǒu le) — пора идти</span> <br>
-                        <span class="example">应该 (yīnggāi) — следует/должен</span> — <span class="example">应该去 (yīnggāi qù) — следует пойти</span> <br>
-                        <span class="example">愿意 (yuànyì) — быть готовым/согласным</span> — <span class="example">我愿意 (wǒ yuànyì) — я согласен</span> <br>
-                        <span class="example">得 (děi) — нужно/необходимо</span> — <span class="example">得去 (děi qù) — нужно идти</span>
-                    </li>
-                    <li><span class="tag">离合词</span> 动宾式：放假、见面、结婚、洗澡 <span class="example">放三天假 (fàng sān tiān jià) — устроить трёхдневный отпуск</span> <br>
-                        <span class="example">动补式：离开、完成、分开</span> — <span class="example">分开了 (fēnkāi le) — расстались (разделились)</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.3 代词</div>
-                <ul>
-                    <li><span class="tag">疑问代词非疑问用法</span> <b>Вопросительные местоимения могут использоваться не для вопроса, а для обобщения.</b> <br>
-                        <span class="example">任指 (Обобщающее значение)</span> — <span class="example">谁都知道 (shéi dōu zhīdào) — Все знают (букв. «кто ни знает, все знают»).</span> <br>
-                        <span class="example">疑问代词 + 疑问代词</span> — <span class="example">去哪儿都行 (qù nǎr dōu xíng) — Куда бы ни пойти — всё равно.</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.4 量词</div>
-                <ul>
-                    <li><span class="tag">新名量词</span> 把 (bǎ) — для предметов с ручкой <span class="example">一把刀 (yī bǎ dāo) — нож</span> <br>
-                        <span class="example">双 (shuāng) — пара</span> — <span class="example">一双鞋 (yī shuāng xié) — пара обуви</span> <br>
-                        <span class="example">张 (zhāng) — для плоских предметов</span> — <span class="example">一张纸 (yī zhāng zhǐ) — лист бумаги</span> <br>
-                        <span class="example">种 (zhǒng) — вид/тип</span> — <span class="example">一种水果 (yī zhǒng shuǐguǒ) — один вид фруктов</span>
-                    </li>
-                    <li><span class="tag">动量词</span> 口 (kǒu) — глоток/кусок <span class="example">吃一口 (chī yī kǒu) — откусить один раз</span> <br>
-                        <span class="example">回 (huí) — раз (количество действий)</span> — <span class="example">去一回 (qù yī huí) — сходить один раз</span> <br>
-                        <span class="example">遍 (biàn) — раз (полный цикл)</span> — <span class="example">看一遍 (kàn yī biàn) — просмотреть один раз (от начала до конца)</span>
-                    </li>
-                    <li><span class="tag">量词重叠</span> <b>Повтор счётного слова для выражения «каждый».</b> <span class="example">个个 (gè gè) — каждый</span> <span class="example">张张 (zhāng zhāng) — каждый лист</span></li>
-                </ul>
-
-                <div class="sub-title">2.5 副词</div>
-                <ul>
-                    <li><span class="tag">程度副词</span> 比较 (bǐjiào) — сравнительно/довольно <span class="example">比较好 (bǐjiào hǎo) — довольно хорошо</span> <br>
-                        <span class="example">更 (gèng) — ещё более</span> — <span class="example">更大 (gèng dà) — ещё больше</span> <br>
-                        <span class="example">特别 (tèbié) — особенно</span> — <span class="example">特别好 (tèbié hǎo) — особенно хорошо</span> <br>
-                        <span class="example">越 (yuè) — чем... тем... (в паре с 越)</span> — <span class="example">越来越好 (yuè lái yuè hǎo) — всё лучше и лучше</span>
-                    </li>
-                    <li><span class="tag">时间副词</span> 才 (cái) — только что/лишь <span class="example">才来 (cái lái) — только что пришёл</span> <br>
-                        <span class="example">马上 (mǎshàng) — сейчас/немедленно</span> — <span class="example">马上到 (mǎshàng dào) — сейчас приду</span> <br>
-                        <span class="example">刚/刚刚 (gāng/gānggāng) — только что</span> — <span class="example">刚走 (gāng zǒu) — только что ушёл</span> <br>
-                        <span class="example">一直 (yīzhí) — всё время/постоянно</span> — <span class="example">一直在等你 (yīzhí zài děng nǐ) — всё время ждал тебя</span>
-                    </li>
-                    <li><span class="tag">情态副词</span> 大概 (dàgài) — примерно/вероятно <span class="example">大概来了 (dàgài lái le) — вероятно, пришёл</span> <br>
-                        <span class="example">必须 (bìxū) — обязательно</span> — <span class="example">必须去 (bìxū qù) — обязательно пойти</span> <br>
-                        <span class="example">差不多 (chàbuduō) — почти</span> — <span class="example">差不多好了 (chàbuduō hǎo le) — почти готово</span> <br>
-                        <span class="example">一定 (yīdìng) — обязательно/непременно</span> — <span class="example">一定来 (yīdìng lái) — обязательно приду</span> <br>
-                        <span class="example">好像 (hǎoxiàng) — кажется/похоже</span> — <span class="example">好像要下雨了 (hǎoxiàng yào xiàyǔ le) — похоже, пойдёт дождь</span> <br>
-                        <span class="example">几乎 (jīhū) — почти</span> — <span class="example">几乎忘了 (jīhū wàng le) — почти забыл</span>
-                    </li>
-                    <li><span class="tag">否定副词</span> 不必 (bùbì) — не нужно <span class="example">不必担心 (bùbì dānxīn) — не нужно беспокоиться</span> <br>
-                        <span class="example">不用 (bùyòng) — не надо</span> — <span class="example">不用谢 (bùyòng xiè) — не стоит благодарности</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.6 介词</div>
-                <ul>
-                    <li><span class="tag">引出对象</span> 为 (wèi) — для/ради <span class="example">为你高兴 (wèi nǐ gāoxìng) — рад за тебя</span> <br>
-                        <span class="example">向 (xiàng) — по направлению к кому-то</span> — <span class="example">向老师学习 (xiàng lǎoshī xuéxí) — учиться у учителя</span> <br>
-                        <span class="example">关于 (guānyú) — о/касательно</span> — <span class="example">关于这个问题 (guānyú zhège wèntí) — относительно этого вопроса</span>
-                    </li>
-                    <li><span class="tag">引出施事、受事</span> 把 (bǎ) — предлог для вынесения объекта вперёд <span class="example">把门关上 (bǎ mén guān shàng) — закрой дверь</span> <br>
-                        <span class="example">被 (bèi) — предлог пассивного залога</span> — <span class="example">被他看见了 (bèi tā kànjiàn le) — был им увиден</span>
-                    </li>
-                    <li><span class="tag">引出凭借、依据</span> 根据 (gēnjù) — согласно <span class="example">根据天气预报 (gēnjù tiānqì yùbào) — согласно прогнозу погоды</span></li>
-                </ul>
-
-                <div class="sub-title">2.7 连词</div>
-                <ul>
-                    <li><span class="tag">连接分句</span> 只有 (zhǐyǒu) — только если <span class="example">只有努力，才能成功 (zhǐyǒu nǔlì, cáinéng chénggōng) — только если стараться, можно добиться успеха</span> <br>
-                        <span class="example">只要 (zhǐyào) — пока только/если только</span> — <span class="example">只要你想去，就去吧 (zhǐyào nǐ xiǎng qù, jiù qù ba) — если хочешь, иди</span> <br>
-                        <span class="example">不但 (bùdàn) — не только</span> — <span class="example">不但聪明而且努力 (bùdàn cōngming érqiě nǔlì) — не только умный, но и трудолюбивый</span> <br>
-                        <span class="example">如果 (rúguǒ) — если</span> — <span class="example">如果下雨，就不去了 (rúguǒ xiàyǔ, jiù bù qù le) — если дождь, не пойду</span>
-                    </li>
-                </ul>
-
-                <div class="sub-title">2.8 助词</div>
-                <ul>
-                    <li><span class="tag">其他助词</span> 的话 (dehuà) — если (в конце условной части) <span class="example">明天的话，我就去 (míngtiān dehuà, wǒ jiù qù) — Если завтра, то я пойду.</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">2. 词类 (Части речи)</div>
+                <div class="section-sub">2.1 名词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">方位名词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">东/南/西/北</span> <span class="trans">восток/юг/запад/север</span></div>
+                        <div class="ex"><span class="zh">北方/东方/南方/西方</span> <span class="trans">север/восток/юг/запад (стороны света)</span></div>
+                        <div class="ex"><span class="zh">中间</span> <span class="trans">середина</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.2 动词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">能愿动词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">需要/该/应该/愿意/得</span> <span class="trans">нужно/следует/должен/готов/необходимо</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">离合词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动宾式</span> <span class="trans">放假 (устроить отпуск), 见面 (встретиться), 结婚 (жениться), 洗澡 (принять душ)</span></div>
+                        <div class="ex"><span class="zh">动补式</span> <span class="trans">离开 (уйти), 完成 (завершить), 分开 (разделиться)</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.3 代词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">疑问代词非疑问用法</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">任指</span> <span class="trans">疑问代词+都… — 谁都知道 (Все знают)</span></div>
+                        <div class="ex"><span class="zh">疑问代词+疑问代词</span> <span class="trans">去哪儿都行 (Куда угодно)</span></div>
+                        <div class="ex"><span class="zh">不定指</span> <span class="trans">用在不知道或不重要的场合</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">人称/指示代词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">别人</span> <span class="trans">другие люди</span></div>
+                        <div class="ex"><span class="zh">咱们</span> <span class="trans">мы (включая собеседника)</span></div>
+                        <div class="ex"><span class="zh">别的/其他</span> <span class="trans">другой/другие</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.4 量词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">名量词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">把/双/张/种/层/封/页/辆/节/所/班/段/头/句</span> <span class="trans">счётные слова для разных предметов</span></div>
+                        <div class="ex"><span class="zh">公斤/斤/角/毛/刻/米</span> <span class="trans">единицы измерения</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动量词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">口/回/遍/声</span> <span class="trans">глоток/раз/раз/звук</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">量词重叠</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">个个/张张</span> <span class="trans">каждый — 个个都来了 (каждый пришёл)</span></div></div>
+                </div>
+                <div class="section-sub">2.5 副词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">程度副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">比较/更/特别/挺/有些/越/极</span> <span class="trans">сравнительно/ещё/особенно/довольно/немного/чем...тем/крайне</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">范围副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">就/一块儿/一共/只/到处/只是</span> <span class="trans">именно/вместе/всего/только/везде/просто</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">时间副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">才/马上/先/一会儿/刚/刚刚/一直</span> <span class="trans">только что/сейчас/сначала/немного/только что/только что/всё время</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">频率副词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">总/总是/又/常常</span> <span class="trans">всегда/всегда/снова/часто</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">关联副词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">一边</span> <span class="trans">одновременно — 一边走一边看 (идти и смотреть)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">情态副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">大概/必须/差不多/一定/好像/几乎</span> <span class="trans">вероятно/обязательно/почти/обязательно/кажется/почти</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">语气副词</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">当然/其实/终于/才</span> <span class="trans">конечно/на самом деле/наконец/только</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">否定副词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">不必/不用</span> <span class="trans">не нужно/не надо</span></div></div>
+                </div>
+                <div class="section-sub">2.6 介词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出对象</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">为/向/关于</span> <span class="trans">для/к/о</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出方向</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">向</span> <span class="trans">в сторону — 向前走 (идти вперёд)</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出目的、原因</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">为了/为</span> <span class="trans">ради/для</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出施事、受事</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">把/被</span> <span class="trans">конструкция с 把 / страдательный залог</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">引出凭借、依据</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">根据</span> <span class="trans">согласно</span></div></div>
+                </div>
+                <div class="section-sub">2.7 连词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连接词或短语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">或/或者</span> <span class="trans">или</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连接分句</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">只有/只要/不但/而且/如果/可/可是/然后</span> <span class="trans">только если/если только/не только/но и/если/но/но/затем</span></div>
+                    </div>
+                </div>
+                <div class="section-sub">2.8 助词</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">其他助词</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">的话</span> <span class="trans">если — 明天的话，我就去 (Если завтра, я пойду)</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">3. 短语 (Словосочетания)</div>
-                <ul>
-                    <li><span class="tag">同位短语</span> <b>Два слова, обозначающие одно и то же лицо/предмет.</b> <span class="example">我的朋友小王 (wǒ de péngyou Xiǎo Wáng) — мой друг Сяо Ван</span> <span class="example">首都北京 (shǒudū Běijīng) — столица Пекин</span></li>
-                    <li><span class="tag">数量重叠</span> <b>Повтор количественной конструкции для выражения последовательности.</b> <span class="example">一个一个 (yī gè yī gè) — один за другим</span> <span class="example">一天一天 (yī tiān yī tiān) — день за днём</span></li>
-                    <li><span class="tag">四字格</span> 不A不B <span class="example">不大不小 (bù dà bù xiǎo) — не большой и не маленький</span> <span class="example">不多不少 (bù duō bù shǎo) — ни много ни мало</span></li>
-                    <li><span class="tag">固定短语</span> <br>
-                        <span class="example">越来越 (yuè lái yuè) — всё более и более</span> — <span class="example">越来越好 (yuè lái yuè hǎo) — всё лучше и лучше</span> <br>
-                        <span class="example">看起来/看上去 (kàn qǐlái/kàn shàngqù) — выглядит/кажется</span> — <span class="example">看起来不错 (kàn qǐlái bùcuò) — выглядит неплохо</span> <br>
-                        <span class="example">一般来说 (yībān lái shuō) — вообще говоря</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">3. 短语 (Словосочетания)</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">同位短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我的朋友小王</span> <span class="trans">мой друг Сяо Ван</span></div>
+                        <div class="ex"><span class="zh">首都北京</span> <span class="trans">столица Пекин</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动补短语2</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">说完/做好/洗干净</span> <span class="trans">сказать до конца/сделать хорошо/вымыть чисто</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">数量重叠</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">一个一个</span> <span class="trans">один за другим</span></div>
+                        <div class="ex"><span class="zh">一天一天</span> <span class="trans">день за днём</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">四字格</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">不大不小</span> <span class="trans">не большой и не маленький</span></div>
+                        <div class="ex"><span class="zh">不多不少</span> <span class="trans">ни много ни мало</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">固定短语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">越来越</span> <span class="trans">всё более — 越来越好 (всё лучше)</span></div>
+                        <div class="ex"><span class="zh">看起来/看上去</span> <span class="trans">выглядит — 看起来不错 (выглядит неплохо)</span></div>
+                        <div class="ex"><span class="zh">一般来说</span> <span class="trans">вообще говоря</span></div>
+                        <div class="ex"><span class="zh">不怎么样</span> <span class="trans">не очень (о качестве)</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">4. 固定格式</div>
-                <ul>
-                    <li><span class="tag">除了……（以外），……还/也/都……</span> <b>Выражение исключения и дополнения.</b> <span class="example">除了他，我们都来了 (chúle tā, wǒmen dōu lái le) — Кроме него, все пришли.</span></li>
-                    <li><span class="tag">从……起</span> <b>Начиная с... (время или место).</b> <span class="example">从现在起 (cóng xiànzài qǐ) — начиная с настоящего момента</span></li>
-                    <li><span class="tag">对……来说</span> <b>Для... (с точки зрения).</b> <span class="example">对我来说 (duì wǒ lái shuō) — для меня</span></li>
-                    <li><span class="tag">一……也/都+不/没……</span> <b>Полное отрицание (ни один... не...).</b> <span class="example">一个字也不认识 (yī gè zì yě bù rènshi) — ни одного иероглифа не знаю</span></li>
-                    <li><span class="tag">一点儿也不</span> <b>Совсем не...</b> <span class="example">一点儿也不累 (yīdiǎnr yě bù lèi) — совсем не устал</span></li>
-                    <li><span class="tag">越……越……</span> <b>Чем... тем...</b> <span class="example">越来越好 (yuè lái yuè hǎo) — чем дальше, тем лучше</span></li>
-                    <li><span class="tag">（在）……以前/以后/前/后</span> <b>До/после (времени или события).</b> <span class="example">吃饭以前 (chīfàn yǐqián) — до еды</span> <span class="example">下课以后 (xiàkè yǐhòu) — после урока</span></li>
-                    <li><span class="tag">该……了</span> <b>Пора... (что-то сделать).</b> <span class="example">该吃饭了 (gāi chīfàn le) — пора есть</span></li>
-                    <li><span class="tag">在……上/下/中</span> <b>В/на (контекст).</b> <span class="example">在桌子上 (zài zhuōzi shàng) — на столе</span> <br>
-                        <span class="example">在老师的帮助下 (zài lǎoshī de bāngzhù xià) — при помощи учителя</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">4. 固定格式</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">除了……（以外），……还/也/都……</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">除了他，我们都来了</span> <span class="trans">Кроме него, все пришли</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">从……起</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">从现在起</span> <span class="trans">Начиная с настоящего момента</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">对……来说</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">对我来说</span> <span class="trans">Для меня</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">一……也/都+不/没……</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">一个字也不认识</span> <span class="trans">Ни одного иероглифа не знаю</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">一点儿也不</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">一点儿也不累</span> <span class="trans">Совсем не устал</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">越……越……</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">越来越好</span> <span class="trans">Всё лучше и лучше</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">（在）……以前/以后/前/后</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">吃饭以前</span> <span class="trans">до еды</span></div>
+                        <div class="ex"><span class="zh">下课以后</span> <span class="trans">после урока</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">X什么（啊）</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">看什么看</span> <span class="trans">Что смотришь?</span></div>
+                        <div class="ex"><span class="zh">忙什么啊</span> <span class="trans">Что ты делаешь?</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">该……了</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">该吃饭了</span> <span class="trans">Пора есть</span></div>
+                        <div class="ex"><span class="zh">该走了</span> <span class="trans">Пора идти</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">在……上/下/中</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">在桌子上</span> <span class="trans">на столе</span></div>
+                        <div class="ex"><span class="zh">在老师的帮助下</span> <span class="trans">при помощи учителя</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">5. 句子成分</div>
-                <ul>
-                    <li><span class="tag">动词/形容词作主语</span> <b>Действие или качество становятся подлежащим.</b> <span class="example">学习很重要 (xuéxí hěn zhòngyào) — Учиться очень важно.</span> <br>
-                        <span class="example">开心就好 (kāixīn jiù hǎo) — Главное, чтобы было весело.</span>
-                    </li>
-                    <li><span class="tag">多项定语</span> <b>Несколько определений перед существительным (порядок: притяжательное → указательное → числительное → прилагательное).</b> <span class="example">我的一本新书 (wǒ de yī běn xīn shū) — моя одна новая книга</span></li>
-                    <li><span class="tag">结果补语2</span> <b>Новые глаголы результата.</b> <span class="example">看到 (kàn dào) — увидеть (результат взгляда)</span> <br>
-                        <span class="example">抓住 (zhuā zhù) — схватить (результат хватания)</span> <br>
-                        <span class="example">考上 (kǎo shàng) — поступить (результат экзамена)</span>
-                    </li>
-                    <li><span class="tag">趋向补语2 (переносное значение)</span> <br>
-                        <span class="example">表示结果意义</span> — <span class="example">想出 (xiǎng chū) — придумать (результат мышления)</span> <br>
-                        <span class="example">表示开始</span> — <span class="example">说起来 (shuō qǐlái) — начать говорить</span> <br>
-                        <span class="example">表示持续</span> — <span class="example">坚持下去 (jiānchí xiàqù) — продолжать упорствовать</span>
-                    </li>
-                    <li><span class="tag">可能补语</span> <b>Показывает возможность/невозможность выполнения действия.</b> <span class="example">吃得完 (chī de wán) — можно съесть полностью</span> <br>
-                        <span class="example">吃不完 (chī bù wán) — нельзя съесть полностью</span> <br>
-                        <span class="example">看得清楚 (kàn de qīngchu) — можно разглядеть чётко</span>
-                    </li>
-                    <li><span class="tag">程度补语</span> <b>Усиливает степень признака.</b> <br>
-                        <span class="example">形容词 + 得很</span> — <span class="example">好得很 (hǎo de hěn) — очень хорошо (усиленно)</span> <br>
-                        <span class="example">形容词/动词 + 极了/坏了</span> — <span class="example">高兴极了 (gāoxìng jí le) — чрезвычайно рад</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">5. 句子成分</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">动词/形容词作主语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">学习很重要</span> <span class="trans">Учиться очень важно</span></div>
+                        <div class="ex"><span class="zh">开心就好</span> <span class="trans">Главное, чтобы было весело</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">主谓短语作主语</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">他来不来还不知道</span> <span class="trans">Придёт он или нет — ещё неизвестно</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">多项定语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">我的一本新书</span> <span class="trans">моя одна новая книга</span></div>
+                        <div class="ex"><span class="zh">那个漂亮的女孩</span> <span class="trans">та красивая девушка</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">结果补语2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动词+到/住/走/上</span> <span class="trans">看到 (увидеть), 抓住 (схватить), 带走 (унести), 考上 (поступить)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">趋向补语2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">表示结果</span> <span class="trans">动词+出/起/下 — 想出 (придумать)</span></div>
+                        <div class="ex"><span class="zh">表示开始</span> <span class="trans">动词+上/起来 — 说起来 (начать говорить)</span></div>
+                        <div class="ex"><span class="zh">表示持续</span> <span class="trans">动词+下去/下来 — 坚持下去 (продолжать)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">可能补语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">动词+得/不+动词/形容词</span> <span class="trans">吃得完 (можно съесть) / 吃不完 (нельзя съесть)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">程度补语</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">形容词+得很</span> <span class="trans">好得很 (очень хорошо)</span></div>
+                        <div class="ex"><span class="zh">形容词/动词+极了/坏了</span> <span class="trans">高兴极了 (чрезвычайно рад), 累坏了 (очень устал)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">数量补语3</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">来了三天了</span> <span class="trans">пришёл три дня назад</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">6. 句子的类型</div>
-                <div class="sub-title">6.1 特殊句型</div>
-                <ul>
-                    <li><span class="tag">“把”字句</span> <b>Выносит объект перед глаголом, подчёркивая воздействие на объект.</b> <br>
-                        <span class="example">把书放在桌子上 (bǎ shū fàng zài zhuōzi shàng) — положить книгу на стол</span> <br>
-                        <span class="example">把房间打扫干净 (bǎ fángjiān dǎsǎo gānjìng) — убрать комнату дочиста</span>
-                    </li>
-                    <li><span class="tag">被动句 (Страдательный залог)</span> <b>Подлежащее испытывает действие со стороны другого лица.</b> <br>
-                        <span class="example">书被他拿走了 (shū bèi tā ná zǒu le) — Книга была им унесена.</span> <br>
-                        <span class="example">饭被吃完了 (fàn bèi chī wán le) — Еда была съедена.</span>
-                    </li>
-                    <li><span class="tag">连动句2</span> <b>Выражение двух одновременных действий, где одно — способ другого.</b> <span class="example">坐着看书 (zuòzhe kàn shū) — сидеть и читать</span> <br>
-                        <span class="example">站着说话 (zhànzhe shuōhuà) — стоять и говорить</span>
-                    </li>
-                    <li><span class="tag">比较句2</span> <b>Расширенные сравнительные конструкции.</b> <br>
-                        <span class="example">A比B+更/还+形容词</span> — <span class="example">他比我更高 (tā bǐ wǒ gèng gāo) — Он ещё выше меня.</span> <br>
-                        <span class="example">A跟B一样</span> — <span class="example">我跟他一样高 (wǒ gēn tā yīyàng gāo) — Я такого же роста, как он.</span> <br>
-                        <span class="example">A不比B+形容词</span> — <span class="example">他不比我高 (tā bù bǐ wǒ gāo) — Он не выше меня.</span>
-                    </li>
-                    <li><span class="tag">存现句3</span> <b>Появление или исчезновение предметов.</b> <br>
-                        <span class="example">门口来了一个人 (ménkǒu lái le yī gè rén) — Ко входу пришёл один человек.</span> <br>
-                        <span class="example">桌子上少了一本书 (zhuōzi shàng shǎo le yī běn shū) — Со стола пропала одна книга.</span>
-                    </li>
-                    <li><span class="tag">“是……的”句2</span> <b>Выражение личного мнения или уверенности.</b> <span class="example">我是不会去的 (wǒ shì bù huì qù de) — Я уж точно не пойду.</span></li>
-                    <li><span class="tag">重动句</span> <b>Повтор глагола с дополнением, чтобы вставить уточнение.</b> <span class="example">他看书看得很快 (tā kàn shū kàn de hěn kuài) — Он читает книги очень быстро.</span> <br>
-                        (структура: субъект + глагол + объект + глагол + уточнение)
-                    </li>
-                </ul>
-                <div class="sub-title">6.2 复句 (Сложные предложения)</div>
-                <ul>
-                    <li><span class="tag">承接复句</span> 先……，再/然后…… <span class="example">先吃饭，再去看电影 (xiān chīfàn, zài qù kàn diànyǐng) — Сначала поесть, потом пойти в кино.</span></li>
-                    <li><span class="tag">递进复句</span> 不但……，而且…… <span class="example">不但聪明，而且努力 (bùdàn cōngming, érqiě nǔlì) — Не только умный, но и трудолюбивый.</span></li>
-                    <li><span class="tag">假设复句</span> 如果……，就……；……的话，就…… <span class="example">如果下雨，我就不去了 (rúguǒ xiàyǔ, wǒ jiù bù qù le) — Если пойдёт дождь, я не пойду.</span></li>
-                    <li><span class="tag">条件复句</span> 只有……，才……；只要……，就…… <span class="example">只有努力，才能成功 (zhǐyǒu nǔlì, cáinéng chénggōng) — Только приложив усилия, можно добиться успеха.</span></li>
-                </ul>
+            <div class="section">
+                <div class="section-title">6. 句子的类型</div>
+                <div class="section-sub">6.1 句类</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">疑问句</span> “怎样+动词”</div>
+                    <div class="examples"><div class="ex"><span class="zh">怎样学习？</span> <span class="trans">Как учиться?</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">反问句</span> 不是……吗？</div>
+                    <div class="examples"><div class="ex"><span class="zh">不是知道吗？</span> <span class="trans">Разве ты не знаешь?</span></div></div>
+                </div>
+                <div class="section-sub">6.2 特殊句型</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“把”字句</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">把书放在桌子上</span> <span class="trans">положить книгу на стол</span></div>
+                        <div class="ex"><span class="zh">把房间打扫干净</span> <span class="trans">убрать комнату дочиста</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">被动句</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">书被他拿走了</span> <span class="trans">Книга была им унесена</span></div>
+                        <div class="ex"><span class="zh">饭被吃完了</span> <span class="trans">Еда была съедена</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">连动句2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">坐着看书</span> <span class="trans">сидеть и читать</span></div>
+                        <div class="ex"><span class="zh">站着说话</span> <span class="trans">стоять и говорить</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">比较句2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">A比B+更/还+形容词</span> <span class="trans">他比我更高 (он ещё выше меня)</span></div>
+                        <div class="ex"><span class="zh">A跟B一样</span> <span class="trans">我跟他一样高 (я такого же роста)</span></div>
+                        <div class="ex"><span class="zh">A不比B+形容词</span> <span class="trans">他不比我高 (он не выше меня)</span></div>
+                        <div class="ex"><span class="zh">A比B+多/少/早/晚+动词+数量短语</span> <span class="trans">他比我早来一天 (он пришёл на день раньше)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">存现句3</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">表示出现</span> <span class="trans">门口来了一个人 (ко входу пришёл человек)</span></div>
+                        <div class="ex"><span class="zh">表示消失</span> <span class="trans">桌上少了一本书 (со стола пропала книга)</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">“是……的”句2</span> Мнение/убеждение</div>
+                    <div class="examples"><div class="ex"><span class="zh">我是不会去的</span> <span class="trans">Я уж точно не пойду</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">重动句</span></div>
+                    <div class="examples"><div class="ex"><span class="zh">他看书看得很快</span> <span class="trans">Он читает книги очень быстро</span></div></div>
+                </div>
+                <div class="section-sub">6.3 复句</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">承接复句</span> 先……，再/然后……</div>
+                    <div class="examples"><div class="ex"><span class="zh">先吃饭，再去看电影</span> <span class="trans">Сначала поесть, потом кино</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">选择复句</span> 或者……，或者……</div>
+                    <div class="examples"><div class="ex"><span class="zh">或者你来，或者我去</span> <span class="trans">Или ты придёшь, или я пойду</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">并列复句</span> 一会儿……一会儿……；又……又……；一边……一边……</div>
+                    <div class="examples"><div class="ex"><span class="zh">又大又红</span> <span class="trans">и большой, и красный</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">递进复句</span> 不但……，而且……</div>
+                    <div class="examples"><div class="ex"><span class="zh">不但聪明，而且努力</span> <span class="trans">Не только умный, но и трудолюбивый</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">转折复句</span> 虽然……，可是……</div>
+                    <div class="examples"><div class="ex"><span class="zh">虽然很累，可是很高兴</span> <span class="trans">Хотя устал, но рад</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">假设复句</span> 如果……，就……；……的话，就……</div>
+                    <div class="examples"><div class="ex"><span class="zh">如果下雨，我就不去了</span> <span class="trans">Если дождь — не пойду</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">条件复句</span> 只有……，才……；只要……，就……</div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">只有努力，才能成功</span> <span class="trans">Только стараясь, можно добиться</span></div>
+                        <div class="ex"><span class="zh">只要努力，就能成功</span> <span class="trans">Если постараешься — сможешь</span></div>
+                    </div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">目的复句</span> 为了……，……</div>
+                    <div class="examples"><div class="ex"><span class="zh">为了健康，我每天跑步</span> <span class="trans">Ради здоровья я бегаю каждый день</span></div></div>
+                </div>
+                <div class="rule">
+                    <div class="name"><span class="tag">紧缩复句</span> ……了……（就）……</div>
+                    <div class="examples"><div class="ex"><span class="zh">吃了饭就走</span> <span class="trans">Поел и ушёл</span></div></div>
+                </div>
             </div>
 
-            <div class="grammar-block">
-                <div class="block-title">7. 特殊表达法</div>
-                <ul>
-                    <li><span class="tag">概数表达法2</span> <br>
-                        <span class="example">用“大概”表示概数</span> — <span class="example">大概三十个人 (dàgài sānshí gè rén) — примерно тридцать человек</span> <br>
-                        <span class="example">相邻数词连用表示概数</span> — <span class="example">五六个人 (wǔ liù gè rén) — пять-шесть человек</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <div class="section-title">7. 特殊表达法</div>
+                <div class="rule">
+                    <div class="name"><span class="tag">概数表达法2</span></div>
+                    <div class="examples">
+                        <div class="ex"><span class="zh">用“大概”</span> <span class="trans">大概三十个人 (примерно тридцать человек)</span></div>
+                        <div class="ex"><span class="zh">相邻数词连用</span> <span class="trans">五六个人 (пять-шесть человек)</span></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="footer-note">HSK 3 · Грамматика — Новая версия экзамена</div>
+            <div class="footer-note">HSK 3 · Полная грамматика</div>
         </div>
     </div>
 
 </div>
 
 <script>
-    // ================================================================
-    // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
-    // ================================================================
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
